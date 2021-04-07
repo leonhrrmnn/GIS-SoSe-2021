@@ -1,8 +1,30 @@
+header{
+
+    background-color: darkgreen;
+    
+    
+}
+body{
+    background-color:beige;
+    
+}
+
 a {
-    color:darkgreen;
-    background-color: skyblue;
+    color: wheat;
+    text-decoration: none;
+    font-size: 0,5em;
+    
+    
+    font-family: Arial, Helvetica, sans-serif;
 }
 h1 {
-    color: navy;
-    font-style: italic;
+    
+    color: darkgreen;
+    
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+p a{
+ color: darkgreen;
+ font-weight: bold;
 }
