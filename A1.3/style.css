@@ -1,30 +1,100 @@
-header{
-
-    background-color: darkgreen;
-    
-    
-}
-body{
-    background-color:beige;
-    
+body {
+    background: url("bg.png");
 }
 
-a {
+.Navigation a {
     color: wheat;
     text-decoration: none;
-    font-size: 0,5em;
+    font-size: 13px;
+    font-weight: bold;
     
     
-    font-family: Arial, Helvetica, sans-serif;
+}
+#navi li{
+    display: inline;
+    background-color: darkgreen;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 25px;
+}
+
+div{
+    background-color: wheat;
+    max-width: 30em ;
+    margin: auto;
+    height: 30em;
+    border-radius: 100%;
+    
+    
+}
+#MeineArbeiten {
+    max-width: 30em;
+    text-align: center;
+    margin: auto;
+    font-size: 6em;
+    height: 1.5em;
+    
+}
+.Titel {
+    color: darkslategrey;
+    text-align: center;
+    max-width: 30em;
+    margin: auto;
+    line-height: 1.5em;
+    font-size: 1.5em;
+    font-weight: bold;
+    
 }
 h1 {
-    
     color: darkgreen;
-    
     font-family: Arial, Helvetica, sans-serif;
+   
+}
+.Media{
+    display: block;
+    width: 30em;
+    margin-left: auto;
+    margin-right: auto;
+}
+a {
+    text-decoration: none;
+    color: darkgreen;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p{
+    color: darkslategrey;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    max-width: 30em;
+    margin: auto;
+    line-height: 2em;
+}
+
+
+.kasten {
+    color: wheat;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    border-radius: 25px;
+    background-color: darkgreen;
+    margin: 5px;
+    padding: 5px;
+    list-style-type: none;
     
 }
-p a{
- color: darkgreen;
- font-weight: bold;
+.kasten a {
+    color: wheat;
+}
+
+table {
+    display: block;
+    width: 17em;
+    margin: auto;
+}
+li{
+    display: block;
+    width: 30em;
+    margin-left: auto;
+    margin-right: auto;
 }
