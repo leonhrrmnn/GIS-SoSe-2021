@@ -30,6 +30,7 @@ span:hover{
 #navi .Aktuell {
     background-color: wheat;
     color: darkgreen;
+    font-size: 13px;
     font-weight: bold;  
 }
 
