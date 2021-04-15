@@ -36,12 +36,17 @@
 
         <h2>KONTAKT</h2>
         <div id="Kontakt">
-            <p class="Kasten">Vorname</p>
-            <p class="Kasten">Nachname</p>
-            <p class="Kasten">E-Mail</p>
-            <p class="Kasten" id="Nachricht">Nachricht</p>
-            <p id="anmerkung"> Mit Absenden dieser Nachricht bestätige ich den Datenschutz</p>
-            <p class="Kasten" id="absenden" >absenden</p>
+            <form action="/action_page.php">
+                
+                <input placeholder="Vorname" class="Kasten"type="text" id="fname" name="fname"><br><br>
+                
+                <input placeholder="Nachname" class="Kasten"type="text" id="lname" name="lname"><br><br>
+                <input placeholder="E-Mail" class="Kasten"type="text" id="lname" name="lname"><br><br>
+                <input placeholder="Nachricht"  class="Kasten"type="text" id="Nachricht" name="lname"><br><br>
+                <p id="anmerkung"> Mit Absenden dieser Nachricht bestätige ich den Datenschutz</p>
+                <input  id="absenden" class="Kasten"type="submit" value="Submit">
+              </form>
+            
         </div>
 
         <p>Mein Standort:</p>

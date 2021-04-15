@@ -128,9 +128,12 @@ li{
     margin-left: auto;
     margin-right: auto;
 }
+::placeholder{
+    color: white;
+}
 .Kasten {
     color: white;
-    background-color: gray;
+    background-color: grey;
     font-family: Arial, Helvetica, sans-serif;
     text-align: left;
     width: 250px;
