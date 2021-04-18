@@ -146,6 +146,9 @@ li{
     font-size:small;
     border-radius: 2px;
 }
+div .Kasten{
+    text-align: left;
+}
 h2{
     color: darkgreen;
     max-width: 800px;
