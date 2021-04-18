@@ -22,6 +22,7 @@ span{
 }
 span:hover{
     color:darkgreen;
+    transform: scale(2);
 }
 #navi .Aktuell {
     background-color: wheat;

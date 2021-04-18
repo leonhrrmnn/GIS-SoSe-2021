@@ -1,0 +1,306 @@
+body {
+    background: url("bg.png");  
+}
+header{
+    height:50px;
+    max-width:800px;
+    margin:auto;
+}
+#navi {
+    position: fixed;
+    text-align: right;
+}
+nav{
+    list-style-type: none;
+    width:800px;
+    text-align: center;
+    
+}
+#kreis>nav{
+    margin-top: 1em;
+}
+#navi .Aktuell {
+    background-color: wheat;
+    color: darkgreen;
+    font-size: 13px;
+    font-weight: bold;  
+}
+.Navigation a {
+    color: wheat;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;  
+}
+.Navigation a:hover {
+    color: darkgreen; 
+    font-size: 13px;
+    font-weight: bold;  
+}
+#navi li{
+    display: inline;
+    background-color: darkgreen;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 25px;
+    transition: all 0.4s ease-in-out 0s;
+}
+#navi li:hover {
+background-color: wheat;
+}
+span{
+    color: grey;
+    font-size:30px;
+    margin: 0px 7px;
+    transition: all 0.5s ease-in-out 0s;
+    
+}
+span:hover{
+    color:darkgreen;
+    transform: scale(2);
+}
+#kreis {  
+    background-color: wheat;
+    max-width: 800px ;
+    height: 800px;
+    border-radius: 100%;
+    animation-duration: 4s;
+    animation-name: slidein;
+}
+
+#MeineArbeiten {
+    max-width: 800px;
+    text-align: center;
+    margin: auto;
+    font-size: 6em;
+    height: 1.5em;   
+}
+img + p{
+    font-size: smaller;
+}
+h1 ~ p{
+    color: darkslategrey;
+    text-align: center;
+    max-width: 800px;
+    line-height: 1.5em;
+    font-size: 1.5em;
+    font-weight: bold;  
+}
+
+h1 {
+    color: darkgreen;
+    font-family: Arial, Helvetica, sans-serif;   
+}
+.Media{
+    display: block;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+a {
+    text-decoration: none;
+    color: darkgreen;
+    font-family: Arial, Helvetica, sans-serif;
+}
+p{
+    color: darkslategrey;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    line-height: 2em;
+}
+.Woche {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 800px;
+    margin: auto;
+
+}
+.Woche>div{
+    color: white;
+    background-color: grey;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    width: 250px;
+    height: 25px;
+    margin-top: 1em;
+    font-size:small;
+    border-radius: 2px;
+    text-align: center;
+    line-height: 25px;
+}
+li{
+    width: 800px;
+}
+::placeholder{
+    color: white;
+}
+.Kasten {
+    color: white;
+    background-color: grey;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    width: 250px;
+    height: 25px;
+    margin-top: 1em;
+    font-size:small;
+    border-radius: 2px;
+}
+h2{
+    color: darkgreen;
+    max-width: 800px;
+    margin: auto;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
+#anmerkung {
+    font-size: small;
+    text-align: start; 
+    margin-top: 1em;     
+}
+div{
+    max-width: 800px ;
+    margin:auto;
+}
+#Nachricht{
+    width:400px;
+    height:50px;
+}
+#absenden {
+    width: 60px;
+}
+p *{
+    
+    font-style: italic;
+    color: darkgoldenrod;
+}
+@media  screen and (max-width: 1024px) { 
+    header{
+        max-width: 600px;
+        
+    }
+    nav{
+        width:600px;
+    }
+    #navi .Aktuell {
+        font-size: 15px;
+    }
+    .Navigation a {
+        font-size: 15px;
+    }
+    .Navigation a:hover {
+        font-size: 15px;
+    }
+    #kreis {
+        width: 600px ;
+        height: 600px;
+    }
+    #MeineArbeiten {
+        max-width: 600px;
+        font-size: 5em;
+    }
+    .Titel {
+        max-width: 600px;
+    }
+    .Media{
+        width: 600px;
+    }
+    p{
+        max-width: 600px;
+    }
+    table {
+        width: 600px;
+    }
+    li{
+        width: 600px;
+    }
+    h2{
+        max-width: 600px;
+    }
+    div{
+        max-width: 600px ;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    header{
+        max-width: 100%;
+       
+    }
+    #navi{
+    
+     text-align: center;
+    
+     
+    }
+    nav{
+        width:100%;
+    }
+    #navi .Aktuell {
+        font-size: 13px;
+    }
+    .Navigation a {
+        font-size: 13px;
+    }
+    .Navigation a:hover {
+        font-size: 13px;
+    }
+    
+    #kreis {
+        width: 100%;
+        border-radius: 2px;
+        height: fit-content;
+    }
+    #MeineArbeiten {
+        max-width: 100%;
+        font-size: 3em;
+    }
+    .Titel {
+        max-width: 100%;
+        font-size: 1em;
+    }
+    .Media{
+        width: 100%;
+    }
+    p{
+        max-width: 100%;
+    }
+    table {
+        width: 100%;
+        
+    }
+    .Woche{
+        width: 100%;
+
+    }
+
+    li{
+        width: 100%;
+    }
+    h2{
+        max-width: 100% ;
+        
+    }
+    div{
+        max-width: 100% ;
+    }
+    #Nachricht{
+        width: 100%;
+        height:50px;
+    }
+    .Kasten{
+        width: 100%;
+        margin-right: 2px;
+    }
+    ul{
+        padding-inline-start: 0px;
+       
+    }
+    .Woche>div {
+        font-size: smaller;
+    }
+ 
+}
