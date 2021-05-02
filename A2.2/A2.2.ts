@@ -10,7 +10,6 @@ function min(numberArray: number[]): number {
     return minimum;
 }
 console.log(min([23, 12, 43, 1]));
-
 // 1b)
 function isEven(N: number): boolean {
     if (N == 0) {
@@ -63,18 +62,16 @@ for (let l: number = 0; l < studiArray.length; l++) {
 // Aufgabe 2a)
 
 function backwards(numbArray: number[]): number[] {
-    let xArray: number[] = numbArray;
-    for (let i: number = 0; i <= numbArray.length; i++) {
-
-        numbArray[i] = xArray[numbArray.length - i];
+    let xArray: number[] = [];
+    for (let i: number = 0; i < numbArray.length; i++) {
+        xArray[i] = numbArray[numbArray.length - 1 - i];
 
     }
-
     return xArray;
 
 }
 
-console.log(backwards([1, 2, 3, 4, 5]));
+
 //b)
 function join(array1: number[], array2: number[]): number[] {
     let ergebnisArray: number[] = array1;
@@ -88,7 +85,7 @@ function join(array1: number[], array2: number[]): number[] {
 }
 //c) 
 function split(arr: number[], index1: number, index2: number): number[] {
-    let ergebnisArray: number[];
+    let ergebnisArray: number[] = [];
     let variable: number = 0;
     for (let i: number = 0; i < arr.length; i++) {
 
@@ -98,6 +95,71 @@ function split(arr: number[], index1: number, index2: number): number[] {
         variable++;
     }
     return ergebnisArray;
+}
 
+let arr: number[] = [5, 42, 17, 2018, -10, 60, -10010];
+let arrBack: number[] = backwards(arr);
+console.log(arr);
+console.log(arrBack);
+console.log(join(arr, [15, 9001, -440]));
+//console.log(join([123, 666, -911], arr, [15, 9001, -440, 1024] )); // Bonus b)
+arr = split(arr, 0, 4);
+console.log(arr);
+console.log(split(arr, 1, 2));
+//console.log(split(arr, 2, 0));     // Bonus c)
+//console.log(split(arr, -1, 2));    // Bonus c)
+//console.log(split(arr, 0, 7));     // Bonus c)
+
+let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("myCanvas");
+let context: CanvasRenderingContext2D = canvas.getContext("2d");
+
+
+//Gras
+context.fillStyle = "green";
+context.fillRect(0, 250, 500, 500);
+//Himmel
+context.fillStyle = "lightblue";
+context.fillRect(0, 0, 500, 250);
+//Haus
+context.lineWidth = 10;
+context.fillStyle = "brown";
+context.fillRect(75, 140, 150, 110);
+context.fillStyle = "black";
+context.fillRect(130, 190, 40, 60);
+context.beginPath();
+
+context.moveTo(50, 140);
+context.lineTo(150, 60);
+context.lineTo(250, 140);
+context.closePath();
+context.lineWidth = 5;
+context.fillStyle = "red";
+context.fill();
+
+//Baum
+context.fillStyle = "brown";
+context.fillRect(380, 100, 30, 200);
+context.fillStyle = "green";
+
+context.beginPath();
+context.arc(395, 115, 100, 0, 2 * Math.PI, false);
+context.fillStyle = 'green';
+context.fill();
+//wolke
+
+context.beginPath();
+context.moveTo(10, 80);
+context.bezierCurveTo(30, 50, 100, 50, 80, 80);
+context.closePath();
+context.fillStyle = "white";
+context.fill();
+
+
+interface Rechteck {
+    eckA: number;
+    eckB: number;
+    eckC: number;
+    eckD: number;
 
 }
+
