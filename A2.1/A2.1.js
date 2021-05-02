@@ -172,7 +172,6 @@ schach();
 //e)
 function schach2(höhe, breite) {
     for (let i = 1; i <= höhe; i++) {
-        let ausgabe = "";
         for (let j = 1; j <= breite; j++) {
             if (i % 2 == 0) {
                 if (j % 2 == 0) {
@@ -191,7 +190,7 @@ function schach2(höhe, breite) {
                 }
             }
         }
-        console.log(ausgabe);
     }
+    return ausgabe;
 }
 //# sourceMappingURL=A2.1.js.map

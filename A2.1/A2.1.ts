@@ -179,10 +179,10 @@ function schach(){
         let ausgabe: String = "";
         for (let j = 0; j < 4; j++) {
             if(i%2 == 0){
-                ausgabe += "# "
+                ausgabe += "# ";
             }
             if(i%2 != 0){
-                ausgabe += " #"
+                ausgabe += " #";
             }
         }
         console.log(ausgabe); 
@@ -191,25 +191,26 @@ function schach(){
 schach();
 
 //e)
-function schach2(höhe: number, breite: number){ 
+function schach2(höhe: number, breite: number) :String{ 
     for (let i = 1; i <= höhe; i++) {
-        let ausgabe: String = "";
+        
         for (let j = 1; j <= breite; j++) {
             if(i%2 == 0){
                 if (j%2 == 0) {
-                    ausgabe+= " "
+                    ausgabe+= " ";
                 }else{
-                    ausgabe += "#"
+                    ausgabe += "#";
                 }
             }
             if(i%2 != 0){
                 if (j%2 == 0) {
-                    ausgabe+= "#"
+                    ausgabe+= "#";
                 }else{
-                    ausgabe += " "
+                    ausgabe += " ";
                 }
             }
         }
-        console.log(ausgabe); 
+        
     }
+    return ausgabe;
 }
