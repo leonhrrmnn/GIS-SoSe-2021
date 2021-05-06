@@ -143,7 +143,7 @@ let rechtecke = [];
 for (let i = 0; i < 8; i++) {
     rechtecke.push(createRect());
 }
-for (let rect = 0; rect <= rechtecke.length; rect++) {
+for (let rect = 0; rect < rechtecke.length; rect++) {
     drawRect(rechtecke[rect]);
 }
 //# sourceMappingURL=A2.2.js.map

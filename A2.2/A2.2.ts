@@ -207,7 +207,7 @@ for (let i: number = 0; i < 8; i++) {
     rechtecke.push(createRect());
 }
 
-for (let rect: number = 0; rect <= rechtecke.length; rect++) {
+for (let rect: number = 0; rect < rechtecke.length; rect++) {
     drawRect(rechtecke[rect]);
 }
 
