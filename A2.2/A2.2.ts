@@ -114,7 +114,7 @@ console.log(split(arr, 2, 3));
 
 //Aufgabe 3a)
 
-let canvas1: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById("canvas1");
+let canvas1: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("canvas1");
 let context1: CanvasRenderingContext2D = canvas1.getContext("2d");
 
 
@@ -190,7 +190,7 @@ function createRect(): Rechteck {
 }
 
 //d)
-let canvas2: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById("canvas2");
+let canvas2: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("canvas2");
 let context2: CanvasRenderingContext2D = canvas2.getContext("2d");
 
 function drawRect(rechteck: Rechteck): void {
@@ -203,11 +203,11 @@ function drawRect(rechteck: Rechteck): void {
 
 
 let rechtecke: Rechteck[] = [];
-for (let i: number = 0; i < 6; i++) {
+for (let i: number = 0; i < 8; i++) {
     rechtecke.push(createRect());
 }
 
-for (let rect of rechtecke) {
-    drawRect(rect);
+for (let rect: number = 0; rect <= rechtecke.length; rect++) {
+    drawRect(rechtecke[rect]);
 }
 

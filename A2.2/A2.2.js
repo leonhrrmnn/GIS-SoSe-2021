@@ -140,10 +140,10 @@ function drawRect(rechteck) {
 }
 //e)
 let rechtecke = [];
-for (let i = 0; i < 6; i++) {
+for (let i = 0; i < 8; i++) {
     rechtecke.push(createRect());
 }
-for (let rect of rechtecke) {
-    drawRect(rect);
+for (let rect = 0; rect <= rechtecke.length; rect++) {
+    drawRect(rechtecke[rect]);
 }
 //# sourceMappingURL=A2.2.js.map
