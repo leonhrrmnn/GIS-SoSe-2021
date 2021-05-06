@@ -1,6 +1,6 @@
 // Aufgabe 1a)
 
-function min(numberArray: number[]): number {
+function min(...numberArray: number[]): number {
     let minimum: number = numberArray[0];
     for (let i: number = 1; i < numberArray.length; i++) {
         if (numberArray[i] < minimum) {
@@ -9,7 +9,7 @@ function min(numberArray: number[]): number {
     }
     return minimum;
 }
-console.log(min([23, 12, 43, 1]));
+console.log(min(23, 12, 43, 1));
 // 1b)
 function isEven(N: number): boolean {
     if (N == 0) {
@@ -90,9 +90,10 @@ function split(arr: number[], index1: number, index2: number): number[] {
     for (let i: number = 0; i < arr.length; i++) {
 
         if (i >= index1 && i <= index2) {
-            ergebnisArray[variable] += arr[i];
+            ergebnisArray[variable] = arr[i];
+            variable++;
         }
-        variable++;
+
     }
     return ergebnisArray;
 }
@@ -105,61 +106,108 @@ console.log(join(arr, [15, 9001, -440]));
 //console.log(join([123, 666, -911], arr, [15, 9001, -440, 1024] )); // Bonus b)
 arr = split(arr, 0, 4);
 console.log(arr);
-console.log(split(arr, 1, 2));
+console.log(split(arr, 2, 3));
 //console.log(split(arr, 2, 0));     // Bonus c)
 //console.log(split(arr, -1, 2));    // Bonus c)
 //console.log(split(arr, 0, 7));     // Bonus c)
 
-let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("myCanvas");
-let context: CanvasRenderingContext2D = canvas.getContext("2d");
+
+//Aufgabe 3a)
+
+let canvas1: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById("canvas1");
+let context1: CanvasRenderingContext2D = canvas1.getContext("2d");
 
 
 //Gras
-context.fillStyle = "green";
-context.fillRect(0, 250, 500, 500);
+context1.fillStyle = "green";
+context1.fillRect(0, 250, 500, 500);
 //Himmel
-context.fillStyle = "lightblue";
-context.fillRect(0, 0, 500, 250);
+context1.fillStyle = "lightblue";
+context1.fillRect(0, 0, 500, 250);
 //Haus
-context.lineWidth = 10;
-context.fillStyle = "brown";
-context.fillRect(75, 140, 150, 110);
-context.fillStyle = "black";
-context.fillRect(130, 190, 40, 60);
-context.beginPath();
+context1.lineWidth = 10;
+context1.fillStyle = "brown";
+context1.fillRect(75, 140, 150, 110);
+context1.fillStyle = "black";
+context1.fillRect(130, 190, 40, 60);
+context1.beginPath();
 
-context.moveTo(50, 140);
-context.lineTo(150, 60);
-context.lineTo(250, 140);
-context.closePath();
-context.lineWidth = 5;
-context.fillStyle = "red";
-context.fill();
+context1.moveTo(50, 140);
+context1.lineTo(150, 60);
+context1.lineTo(250, 140);
+context1.closePath();
+context1.lineWidth = 5;
+context1.fillStyle = "red";
+context1.fill();
 
 //Baum
-context.fillStyle = "brown";
-context.fillRect(380, 100, 30, 200);
-context.fillStyle = "green";
+context1.fillStyle = "brown";
+context1.fillRect(380, 100, 30, 200);
+context1.fillStyle = "green";
 
-context.beginPath();
-context.arc(395, 115, 100, 0, 2 * Math.PI, false);
-context.fillStyle = 'green';
-context.fill();
+context1.beginPath();
+context1.arc(395, 115, 100, 0, 2 * Math.PI, false);
+context1.fillStyle = "green";
+context1.fill();
 //wolke
 
-context.beginPath();
-context.moveTo(10, 80);
-context.bezierCurveTo(30, 50, 100, 50, 80, 80);
-context.closePath();
-context.fillStyle = "white";
-context.fill();
+context1.beginPath();
+context1.moveTo(10, 80);
+context1.bezierCurveTo(30, 50, 100, 50, 80, 80);
+context1.closePath();
+context1.fillStyle = "white";
+context1.fill();
 
-
+//b)
 interface Rechteck {
-    eckA: number;
-    eckB: number;
-    eckC: number;
-    eckD: number;
+    color: string;
+    breite: number;
+    höhe: number;
+    posX: number;
+    posY: number;
 
+}
+
+//c)
+function createRect(): Rechteck {
+
+    let x: number = Math.random() * 500;
+    let y: number = Math.random() * 500;
+    let w: number = Math.random() * (500 - 50) + 50;
+    let h: number = Math.random() * (500 - 50) + 50;
+
+    let r: number = Math.random() * 255;
+    let g: number = Math.random() * 255;
+    let b: number = Math.random() * 255;
+
+    return {
+        posX: x,
+        posY: y,
+        breite: w,
+        höhe: h,
+        color: `rgb(${r}, ${g}, ${b})`
+    };
+}
+
+//d)
+let canvas2: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById("canvas2");
+let context2: CanvasRenderingContext2D = canvas2.getContext("2d");
+
+function drawRect(rechteck: Rechteck): void {
+    context2.fillStyle = rechteck.color;
+    context2.fillRect(rechteck.posX, rechteck.posY, rechteck.breite, rechteck.höhe);
+}
+
+//e)
+
+
+
+let rechtecke: Rechteck[] = [];
+for (let i: number = 0; i < 6; i++) {
+    rechtecke.push(createRect());
+}
+
+for (let rect of rechtecke) {
+    drawRect(rect);
 }
 
