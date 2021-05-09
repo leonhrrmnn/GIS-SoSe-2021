@@ -1,0 +1,63 @@
+"use strict";
+var _A2_3;
+(function (_A2_3) {
+    //Patty
+    _A2_3.allPattys = [];
+    _A2_3.patty1 = { name: "beef", form: _A2_3.canvas.getContext("2d"), preis: 2, vegan: false, gramm: 200 };
+    _A2_3.patty1.form.fillStyle = "brown";
+    _A2_3.patty1.form.fillRect(30, 30, 100, _A2_3.patty1.gramm / 10);
+    _A2_3.allPattys.push(_A2_3.patty1);
+    _A2_3.patty4 = { name: "beef", form: _A2_3.canvas.getContext("2d"), preis: 2, vegan: false, gramm: 100 };
+    _A2_3.patty4.form.fillStyle = "brown";
+    _A2_3.patty4.form.fillRect(180, 30, 100, _A2_3.patty4.gramm / 10);
+    _A2_3.allPattys.push(_A2_3.patty4);
+    _A2_3.patty2 = { name: "chicken", form: _A2_3.canvas.getContext("2d"), preis: 2, vegan: false, gramm: 100 };
+    _A2_3.patty2.form.fillStyle = "yellow";
+    _A2_3.patty2.form.fillRect(330, 30, 100, _A2_3.patty2.gramm / 10);
+    _A2_3.allPattys.push(_A2_3.patty2);
+    _A2_3.patty3 = { name: "veggie", form: _A2_3.canvas.getContext("2d"), preis: 3, vegan: true, gramm: 100 };
+    _A2_3.patty3.form.fillStyle = "green";
+    _A2_3.patty3.form.fillRect(480, 30, 100, _A2_3.patty3.gramm / 10);
+    _A2_3.allPattys.push(_A2_3.patty3);
+    // Brötchen
+    _A2_3.allBuns = [];
+    _A2_3.bun1 = { name: "Laugen-Bun", form: _A2_3.canvas1.getContext("2d"), preis: 3, vegan: true };
+    _A2_3.bun1.form.moveTo(50, 100);
+    _A2_3.bun1.form.bezierCurveTo(50, 0, 100, 0, 100, 100);
+    _A2_3.bun1.form.closePath();
+    _A2_3.bun1.form.fillStyle = "black";
+    _A2_3.bun1.form.fill();
+    _A2_3.bun1.form.beginPath();
+    _A2_3.allBuns.push(_A2_3.bun1);
+    _A2_3.bun2 = { name: "Brioche-Bun", form: _A2_3.canvas1.getContext("2d"), preis: 1, vegan: false };
+    _A2_3.bun2.form.moveTo(125, 100);
+    _A2_3.bun2.form.bezierCurveTo(125, 0, 175, 0, 175, 100);
+    _A2_3.bun2.form.closePath();
+    _A2_3.bun2.form.fillStyle = "brown";
+    _A2_3.bun2.form.fill();
+    _A2_3.bun2.form.beginPath();
+    _A2_3.allBuns.push(_A2_3.bun2);
+    _A2_3.bun3 = { name: "Sesam-Bun", form: _A2_3.canvas1.getContext("2d"), preis: 1, vegan: true };
+    _A2_3.bun3.form.moveTo(200, 100);
+    _A2_3.bun3.form.bezierCurveTo(200, 0, 250, 0, 250, 100);
+    _A2_3.bun3.form.closePath();
+    _A2_3.bun3.form.fillStyle = "wheat";
+    _A2_3.bun3.form.fill();
+    _A2_3.bun3.form.beginPath();
+    _A2_3.allBuns.push(_A2_3.bun3);
+    //Soßen
+    _A2_3.allSoße = [];
+    _A2_3.soße1 = { name: "ketchup", form: _A2_3.canvas2.getContext("2d"), preis: 1, vegan: true };
+    _A2_3.soße1.form.fillStyle = "red";
+    _A2_3.soße1.form.fillRect(135, 30, 30, 70);
+    _A2_3.allSoße.push(_A2_3.soße1);
+    _A2_3.soße2 = { name: "aioli", form: _A2_3.canvas2.getContext("2d"), preis: 2, vegan: false };
+    _A2_3.soße2.form.fillStyle = "grey";
+    _A2_3.soße2.form.fillRect(285, 30, 30, 70);
+    _A2_3.allSoße.push(_A2_3.soße2);
+    _A2_3.soße3 = { name: "bbq", form: _A2_3.canvas2.getContext("2d"), preis: 2, vegan: true };
+    _A2_3.soße3.form.fillStyle = "brown";
+    _A2_3.soße3.form.fillRect(435, 30, 30, 70);
+    _A2_3.allSoße.push(_A2_3.soße3);
+})(_A2_3 || (_A2_3 = {}));
+//# sourceMappingURL=data.js.map
