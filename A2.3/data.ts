@@ -3,7 +3,7 @@ namespace _A2_3 {
     //Patty
     export let allPattys: Patty[] = [];
 
-    export let patty1: Patty = { name: "beef", form: canvas.getContext("2d"), preis: 2, vegan: false, gramm: 200 };
+    export let patty1: Patty = { name: "beef", form: canvas.getContext("2d"), preis: 3, vegan: false, gramm: 200 };
     patty1.form.fillStyle = "brown";
     patty1.form.fillRect(30, 30, 100, patty1.gramm / 10);
     allPattys.push(patty1);

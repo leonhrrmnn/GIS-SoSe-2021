@@ -3,7 +3,7 @@ var _A2_3;
 (function (_A2_3) {
     //Patty
     _A2_3.allPattys = [];
-    _A2_3.patty1 = { name: "beef", form: _A2_3.canvas.getContext("2d"), preis: 2, vegan: false, gramm: 200 };
+    _A2_3.patty1 = { name: "beef", form: _A2_3.canvas.getContext("2d"), preis: 3, vegan: false, gramm: 200 };
     _A2_3.patty1.form.fillStyle = "brown";
     _A2_3.patty1.form.fillRect(30, 30, 100, _A2_3.patty1.gramm / 10);
     _A2_3.allPattys.push(_A2_3.patty1);
