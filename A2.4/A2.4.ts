@@ -1,7 +1,7 @@
 namespace A2_4 {
 
     console.log("Hello");
-    
+
     function createDiv(_auswahl: Parts): HTMLDivElement {
 
         let div: HTMLDivElement = document.createElement("div");
@@ -32,7 +32,7 @@ namespace A2_4 {
             divBurger.appendChild(div);
         }
     }
-
     showAuswahl(auswahlJSON.buns);
+   
 
 }
