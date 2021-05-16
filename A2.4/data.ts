@@ -18,19 +18,19 @@ namespace A2_4 {
             "buns": [
                 {
                     "name": "Laugen-Bun",
-                    "form": "A2.4/Bilder/laugen-bun.png",
+                    "form": "laugen-bun.png",
                     "preis": 3,
                     "vegan": "true" 
                 },
                 {
                     "name": "Brioche-Bun",
-                    "form": "A2.4/Bilder/brioche-bun.png",
+                    "form": "brioche-bun.png",
                     "preis": 1,
                     "vegan": "false" 
                 },
                 {
                     "name": "Sesam-Bun",
-                    "form": "A2.4/Bilder/sesam-bun.png",
+                    "form": "sesam-bun.png",
                     "preis": 1,
                     "vegan": "true"
                 }
@@ -38,29 +38,29 @@ namespace A2_4 {
             ],
             "pattys": [
                 {
-                    "name": "Beef",
-                    "form": "A2.4/Bilder/beef200.png",
+                    "name": "Beef 200g",
+                    "form": "beef200.png",
                     "preis": 3,
                     "vegan": "false"
                     
                 },
                 {
-                    "name": "Beef",
-                    "form": "A2.4/Bilder/beef.png",
+                    "name": "Beef 100g",
+                    "form": "beef.png",
                     "preis": 2,
                     "vegan": "false"
                     
                 },
                 {
                     "name": "Chicken",
-                    "form": "A2.4/Bilder/chicken.png",
+                    "form": "chicken.png",
                     "preis": 2,
                     "vegan": "false"
                     
                 },
                 {
                     "name": "Veggie",
-                    "form": "A2.4/Bilder/veggie.png",
+                    "form": "veggie.png",
                     "preis": 3,
                     "vegan": "true"
                     
@@ -70,19 +70,19 @@ namespace A2_4 {
             "soßen": [
                 {
                     "name": "Ketchup",
-                    "form": "A2.4/Bilder/ketchup.png",
+                    "form": "ketchup.png",
                     "preis": 1,
                     "vegan": "true"
                 },
                 {
                     "name": "Aioli",
-                    "form": "A2.4/Bilder/aioli.png",
+                    "form": "aioli.png",
                     "preis": 1,
                     "vegan": "true"
                 },
                 {
                     "name": "BBQ",
-                    "form": "A2.4/Bilder/bbq.png",
+                    "form": "bbq.png",
                     "preis": 1,
                     "vegan": "true"
                 }

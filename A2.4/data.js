@@ -1,86 +1,82 @@
 "use strict";
 var A2_4;
 (function (A2_4) {
-    A2_4.div = document.createElement("div");
-    A2_4.div.id = "canva";
-    A2_4.canvas1 = document.createElement("canvas");
-    A2_4.canvas = document.createElement("canvas");
-    A2_4.canvas2 = document.createElement("canvas");
     A2_4.burgerJSON = `
         { 
-            "bun": [
+            "buns": [
                 {
                     "name": "Laugen-Bun",
-                    "form": "canvas1.getContext("2d")",
+                    "form": "laugen-bun.png",
                     "preis": 3,
-                    "vegan": true 
+                    "vegan": "true" 
                 },
                 {
                     "name": "Brioche-Bun",
-                    "form": "canvas1.getContext("2d")",
+                    "form": "brioche-bun.png",
                     "preis": 1,
-                    "vegan": false 
+                    "vegan": "false" 
                 },
                 {
                     "name": "Sesam-Bun",
-                    "form": "canvas1.getContext("2d")",
+                    "form": "sesam-bun.png",
                     "preis": 1,
-                    "vegan": true
+                    "vegan": "true"
                 }
 
             ],
-            "patty": [
+            "pattys": [
                 {
-                    "name": "Beef",
-                    "form": "canvas1.getContext("2d")",
+                    "name": "Beef 200g",
+                    "form": "beef200.png",
                     "preis": 3,
-                    "vegan": false, 
-                    "gramm": 200
+                    "vegan": "false"
+                    
                 },
                 {
-                    "name": "Beef",
-                    "form": "canvas1.getContext("2d")",
+                    "name": "Beef 100g",
+                    "form": "beef.png",
                     "preis": 2,
-                    "vegan": false, 
-                    "gramm": 100
+                    "vegan": "false"
+                    
                 },
                 {
                     "name": "Chicken",
-                    "form": "canvas1.getContext("2d")",
+                    "form": "chicken.png",
                     "preis": 2,
-                    "vegan": false, 
-                    "gramm": 100
+                    "vegan": "false"
+                    
                 },
                 {
                     "name": "Veggie",
-                    "form": "canvas1.getContext("2d")",
+                    "form": "veggie.png",
                     "preis": 3,
-                    "vegan": true, 
-                    "gramm": 100
+                    "vegan": "true"
+                    
                 }
 
             ],
-            "soße": [
+            "soßen": [
                 {
                     "name": "Ketchup",
-                    "form": canvas1.getContext("2d"),
+                    "form": "ketchup.png",
                     "preis": 1,
-                    "vegan": true
+                    "vegan": "true"
                 },
                 {
                     "name": "Aioli",
-                    "form": canvas1.getContext("2d"),
+                    "form": "aioli.png",
                     "preis": 1,
-                    "vegan": true
+                    "vegan": "true"
                 },
                 {
                     "name": "BBQ",
-                    "form": canvas1.getContext("2d"),
+                    "form": "bbq.png",
                     "preis": 1,
-                    "vegan": true
+                    "vegan": "true"
                 }
             ]
         }
     `;
+    A2_4.auswahlJSON = JSON.parse(A2_4.burgerJSON);
 })(A2_4 || (A2_4 = {}));
 //# sourceMappingURL=data.js.map

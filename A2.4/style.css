@@ -11,11 +11,7 @@ p{
     font-family: Arial, Helvetica, sans-serif;  
     color: grey;
 }
-button{
-    width: 100px;
-    margin: 10px 25px;
-    align-items: center;
-}
+
 
 #Burger{
     display: flex;
@@ -23,9 +19,26 @@ button{
     margin: auto;
 }
 
+#Ausgewählt{
+    display: flex;
+    max-width: fit-content;
+    margin: auto;
+}
 
 .burger{
-    width: 600px;
-    height: 100px;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 0px 50px;
+}
+
+img{
+    width: 150px;
+    justify-content: center;
+    align-items: center;
+  
+}
+button{
+    width: 100px;
+    margin: 10px 25px;
+    align-self: center;
 }
