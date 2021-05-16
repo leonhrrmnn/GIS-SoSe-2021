@@ -76,7 +76,7 @@ namespace A2_4 {
                 },
                 {
                     "name": "Aioli",
-                    "form": "A2.4/Bilder/aioli.png"),
+                    "form": "A2.4/Bilder/aioli.png",
                     "preis": 1,
                     "vegan": "true"
                 },
