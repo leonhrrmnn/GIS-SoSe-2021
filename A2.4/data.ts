@@ -1,19 +1,10 @@
 namespace A2_4 {
 
-    export let div: HTMLDivElement = document.createElement("div");
-    div.id = "canva";
-
     export interface Burger {
         pattys: Parts[];
         buns: Parts[];
         soßen: Parts[];
     }
-    export interface Burger1 {
-        patty: Parts;
-        bun: Parts;
-        soße: Parts;
-    }
-
     export interface Parts {
         name: string;
         form: string;
@@ -76,7 +67,7 @@ namespace A2_4 {
                 }
 
             ],
-            "soßem": [
+            "soßen": [
                 {
                     "name": "Ketchup",
                     "form": "A2.4/Bilder/ketchup.png",

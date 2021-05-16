@@ -1,5 +1,7 @@
 namespace A2_4 {
 
+    console.log("Hello");
+    
     function createDiv(_auswahl: Parts): HTMLDivElement {
 
         let div: HTMLDivElement = document.createElement("div");
@@ -17,7 +19,8 @@ namespace A2_4 {
         return div;
 
         function hndClickSelection(_event: Event): void {
-           sessionStorage.setItem("bild", _auswahl.form);
+            console.log("hallo");
+            sessionStorage.setItem("bild", _auswahl.form);
         }
 
     }
