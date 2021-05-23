@@ -1,0 +1,44 @@
+body {
+    background: url("bg.png");  
+}
+h1 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;  
+    color: grey;
+}
+p{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;  
+    color: grey;
+}
+
+
+#Burger{
+    display: flex;
+    max-width: fit-content;
+    margin: auto;
+}
+
+#Ausgewählt{
+    display: flex;
+    max-width: fit-content;
+    margin: auto;
+}
+
+.burger{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 50px;
+}
+
+img{
+    width: 150px;
+    justify-content: center;
+    align-items: center;
+  
+}
+button{
+    width: 100px;
+    margin: 10px 25px;
+    align-self: center;
+}
