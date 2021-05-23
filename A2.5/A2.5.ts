@@ -11,6 +11,8 @@ namespace A2_5 {
         preis: number;
         vegan: boolean;
     }
+
+
     let pageID: string = document.querySelector("title").getAttribute("id");
 
     function createDiv(_auswahl: Parts): HTMLDivElement {
@@ -70,9 +72,9 @@ namespace A2_5 {
     async function einlesen(): Promise<void> {
         let auswahl: Response = await fetch("https://leonhrrmnn.github.io/GIS-SoSe-2021/A2.5/data.json");
         console.log("Auswahl: ", auswahl);
-    
+
         let auswahlBurger: Burger = await auswahl.json();
-    
+
         if (pageID == "Seite1") {
             showAuswahl(auswahlBurger.buns);
         }
@@ -129,8 +131,31 @@ namespace A2_5 {
         let text: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("text");
         text.innerText = "Dein ausgewählter Burger besteht aus einem " + sessionStorage.getItem("name") + ", einem " + sessionStorage.getItem("name2") + " Patty und einer " + sessionStorage.getItem("name3") + " Soße";
 
-    }
+        async function display(_url: RequestInfo): Promise<void> {
 
+            let session: URLSearchParams = new URLSearchParams(sessionStorage);
+            console.log(session.toString());
+            _url = _url + "?" + session.toString();
+
+            let response: Response = await fetch(_url);
+            console.log(response);
+            let ausgabe: EndBurger = await response.json();
+            let zurückgeben: HTMLParagraphElement = document.createElement("p");
+            document.appendChild(zurückgeben);
+
+            if (ausgabe.error) {
+                zurückgeben.innerText = ausgabe.error; 
+            }
+            else {
+                zurückgeben.innerText = ausgabe.message; 
+            }
+           
+        }
+        display("https://gis-communication.herokuapp.com");
+    }
+    interface EndBurger {
+        [name: string]: string;
+    }
 
 
 }

@@ -92,6 +92,23 @@ var A2_5;
         auswahl.appendChild(soßeBild);
         let text = document.getElementById("text");
         text.innerText = "Dein ausgewählter Burger besteht aus einem " + sessionStorage.getItem("name") + ", einem " + sessionStorage.getItem("name2") + " Patty und einer " + sessionStorage.getItem("name3") + " Soße";
+        async function display(_url) {
+            let session = new URLSearchParams(sessionStorage);
+            console.log(session.toString());
+            _url = _url + "?" + session.toString();
+            let response = await fetch(_url);
+            console.log(response);
+            let ausgabe = await response.json();
+            let zurückgeben = document.createElement("p");
+            document.appendChild(zurückgeben);
+            if (ausgabe.error) {
+                zurückgeben.innerText = ausgabe.error;
+            }
+            else {
+                zurückgeben.innerText = ausgabe.message;
+            }
+        }
+        display("https://gis-communication.herokuapp.com");
     }
 })(A2_5 || (A2_5 = {}));
 //# sourceMappingURL=A2.5.js.map
