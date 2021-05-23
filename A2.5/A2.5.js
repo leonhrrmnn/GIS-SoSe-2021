@@ -101,12 +101,10 @@ var A2_5;
             let ausgabe = await response.json();
             let zurückgeben = document.getElementById("display");
             if (ausgabe.error) {
-                zurückgeben.className = "error";
-                zurückgeben.innerText = ausgabe.error;
+                zurückgeben.innerText = "error";
             }
             else {
-                zurückgeben.className = "message";
-                zurückgeben.innerText = ausgabe.message;
+                zurückgeben.innerText = "message";
             }
         }
         display("https://gis-communication.herokuapp.com");

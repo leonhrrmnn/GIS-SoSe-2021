@@ -141,21 +141,20 @@ namespace A2_5 {
             console.log(response);
             let ausgabe: EndBurger = await response.json();
             let zurückgeben: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("display");
-        
+
             if (ausgabe.error) {
-                zurückgeben.className = "error";
-                zurückgeben.innerText = ausgabe.error; 
+                zurückgeben.innerText = "error";
+            } else {
+                zurückgeben.innerText = "message";
             }
-            else {
-                zurückgeben.className = "message";
-                zurückgeben.innerText = ausgabe.message; 
-            }
-           
+
         }
         display("https://gis-communication.herokuapp.com");
     }
     interface EndBurger {
-        [name: string]: string;
+        error: string;
+        
+        
     }
 
 
