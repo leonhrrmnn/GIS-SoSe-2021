@@ -140,13 +140,14 @@ namespace A2_5 {
             let response: Response = await fetch(_url);
             console.log(response);
             let ausgabe: EndBurger = await response.json();
-            let zurückgeben: HTMLParagraphElement = document.createElement("p");
-            auswahl.appendChild(zurückgeben);
-
+            let zurückgeben: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("display");
+        
             if (ausgabe.error) {
+                zurückgeben.className = "error";
                 zurückgeben.innerText = ausgabe.error; 
             }
             else {
+                zurückgeben.className = "message";
                 zurückgeben.innerText = ausgabe.message; 
             }
            

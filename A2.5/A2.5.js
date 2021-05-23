@@ -99,12 +99,13 @@ var A2_5;
             let response = await fetch(_url);
             console.log(response);
             let ausgabe = await response.json();
-            let zurückgeben = document.createElement("p");
-            auswahl.appendChild(zurückgeben);
+            let zurückgeben = document.getElementById("display");
             if (ausgabe.error) {
+                zurückgeben.className = "error";
                 zurückgeben.innerText = ausgabe.error;
             }
             else {
+                zurückgeben.className = "message";
                 zurückgeben.innerText = ausgabe.message;
             }
         }
