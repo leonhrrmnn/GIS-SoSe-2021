@@ -100,7 +100,7 @@ var A2_5;
             console.log(response);
             let ausgabe = await response.json();
             let zurückgeben = document.createElement("p");
-            document.appendChild(zurückgeben);
+            auswahl.appendChild(zurückgeben);
             if (ausgabe.error) {
                 zurückgeben.innerText = ausgabe.error;
             }

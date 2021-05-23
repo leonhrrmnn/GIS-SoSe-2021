@@ -141,7 +141,7 @@ namespace A2_5 {
             console.log(response);
             let ausgabe: EndBurger = await response.json();
             let zurückgeben: HTMLParagraphElement = document.createElement("p");
-            document.appendChild(zurückgeben);
+            auswahl.appendChild(zurückgeben);
 
             if (ausgabe.error) {
                 zurückgeben.innerText = ausgabe.error; 
