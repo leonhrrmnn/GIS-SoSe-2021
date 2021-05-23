@@ -145,7 +145,7 @@ namespace A2_5 {
             if (ausgabe.error) {
                 zurückgeben.innerText = "error";
             } else {
-                zurückgeben.innerText = "message";
+                zurückgeben.innerText = "Daten sind übergeben";
             }
 
         }

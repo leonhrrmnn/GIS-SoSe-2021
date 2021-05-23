@@ -104,7 +104,7 @@ var A2_5;
                 zurückgeben.innerText = "error";
             }
             else {
-                zurückgeben.innerText = "message";
+                zurückgeben.innerText = "Daten sind übergeben";
             }
         }
         display("https://gis-communication.herokuapp.com");
