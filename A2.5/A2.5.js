@@ -101,10 +101,10 @@ var A2_5;
             let ausgabe = await response.json();
             let zurückgeben = document.getElementById("display");
             if (ausgabe.error) {
-                zurückgeben.innerText = "error";
+                zurückgeben.innerText = ausgabe.error;
             }
             else {
-                zurückgeben.innerText = "Daten sind übergeben";
+                zurückgeben.innerText = ausgabe.message;
             }
         }
         display("https://gis-communication.herokuapp.com");

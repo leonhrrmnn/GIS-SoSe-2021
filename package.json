@@ -1,0 +1,23 @@
+{
+  "name": "gis-sose-2021",
+  "version": "1.0.0",
+  "description": "halloo",
+  "main": "index.js",
+  "dependencies": {
+    "sudo": "^1.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node A3.1/server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leonhrrmnn/GIS-SoSe-2021.git"
+  },
+  "author": "Leon Herrmann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leonhrrmnn/GIS-SoSe-2021/issues"
+  },
+  "homepage": "https://github.com/leonhrrmnn/GIS-SoSe-2021#readme"
+}

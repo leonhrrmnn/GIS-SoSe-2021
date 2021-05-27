@@ -143,9 +143,9 @@ namespace A2_5 {
             let zurückgeben: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("display");
 
             if (ausgabe.error) {
-                zurückgeben.innerText = "error";
+                zurückgeben.innerText = ausgabe.error;
             } else {
-                zurückgeben.innerText = "Daten sind übergeben";
+                zurückgeben.innerText = ausgabe.message;
             }
 
         }
@@ -153,6 +153,7 @@ namespace A2_5 {
     }
     interface EndBurger {
         error: string;
+        message: string;
         
         
     }
