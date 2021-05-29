@@ -6,15 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aufgabe 3.1</title>
-    <script src="./server/server.js" defer></script>
+    <script src="./client/script.js" defer></script>
 </head>
 
 <body>
-    <form method="GET" action="https://gis-example.herokuapp.com/">
+    <h1> Aufgabe 1 mit GET</h1>
+    <form method="GET" action="https://testleonhrrmnn.herokuapp.com">
 
-        <input placeholder="Straße & Hausnummer" class="Kasten" type="text" id="fname" name="fname"><br><br>
-        <input placeholder="PLZ & Ort" class="Kasten" type="text" id="lname" name="fname"><br><br>
+        <input placeholder="Straße & Hausnummer" class="Kasten" type="text" id="fname" name="fname">
+        <input placeholder="PLZ & Ort" class="Kasten" type="text" id="lname" name="fname">
         <button type="submit">Abschicken</button>
+    </form>
+    <h1> Aufgabe 2 mit Fetch</h1>
+    <form id="fetch">
+
+        <input placeholder="Straße" class="Kasten" type="text" id="fname" name="Straße">
+        <input placeholder="Hausnummer" class="Kasten" type="text" id="fname" name="Nummer">
+        <input placeholder="PLZ" class="Kasten" type="text" id="lname" name="PLZ">
+        <input placeholder="Ort" class="Kasten" type="text" id="lname" name="Ort">
+        <input type="email" class="Kasten" id="ename" name="fname" placeholder="E-Mail">
+        <button id="button">Abschicken</button>
+        <p id="zurückgeben"></p>
     </form>
 </body>
 
