@@ -1,6 +1,6 @@
 namespace P_3_1 {
    
-    async function daten(_url: RequestInfo): Promise<void> {
+    async function daten(): Promise<void> {
 
         let formData: FormData = new FormData(document.forms[1]);
         console.log(formData.get("name"));
@@ -10,23 +10,23 @@ namespace P_3_1 {
             console.log("name: " + entry[0]);
             console.log("value: " + entry[1]);
         }
-
+        let url: string = "https://testleonhrrmnn.herokuapp.com";
         let session: URLSearchParams = new URLSearchParams(<any>formData);
         console.log(session.toString());
-        _url = _url + "?" + session.toString();
-        console.log(_url);
-        let response: Response = await fetch(_url);
+        url = url + "?" + session.toString();
+        console.log(url);
+        let response: Response = await fetch(url);
         console.log(response);
         let ausgabe: string = await response.text();
         console.log(ausgabe);
         let zurückgeben: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("display");
         zurückgeben.innerText = ausgabe;
     }
-    async function hndData(): Promise<void> {
-        daten("https://testleonhrrmnn.herokuapp.com");
-    }
+    
+       
+    
 
     let button: HTMLButtonElement = <HTMLButtonElement> document.getElementById("button");
-    button.addEventListener("click", hndData);
+    button.addEventListener("click", daten);
 
 }
