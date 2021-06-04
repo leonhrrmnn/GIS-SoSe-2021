@@ -6,7 +6,9 @@
   "dependencies": {
     "sudo": "^1.0.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "^15.12.0"
+  },
   "scripts": {
     "start": "node A3.1/server/server.js"
   },
