@@ -1,7 +1,7 @@
 "use strict";
 var P_3_2;
 (function (P_3_2) {
-    let url = "http://testleonhrrmnn.herokuapp.com";
+    let url = "https://testleonhrrmnn.herokuapp.com";
     let buttonHTML = document.getElementById("HTML");
     let buttonJSON = document.getElementById("JSON");
     let zurückgeben = document.getElementById("zurückgeben");

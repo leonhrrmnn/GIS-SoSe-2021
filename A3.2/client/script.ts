@@ -1,6 +1,6 @@
 namespace P_3_2 {
 
-    let url: string = "http://testleonhrrmnn.herokuapp.com";
+    let url: string = "https://testleonhrrmnn.herokuapp.com";
     let buttonHTML: HTMLButtonElement = <HTMLButtonElement>document.getElementById("HTML");
     let buttonJSON: HTMLButtonElement = <HTMLButtonElement>document.getElementById("JSON");
     let zurückgeben: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("zurückgeben");
