@@ -8,7 +8,7 @@ var P_3_2;
     console.log("Starting server");
     let port = Number(process.env.PORT);
     if (!port)
-        port = 8100; // Port wird auf 8100 gesetzt
+        port = 8100; // Port wird auf 8200 gesetzt
     let server = Http.createServer(); //Erstellt einen Server
     server.addListener("request", handleRequest); //wird ausgeführt wenn der Server eine "request" erhalten hat
     server.addListener("listening", handleListen);
@@ -18,23 +18,21 @@ var P_3_2;
     }
     function handleRequest(_request, _response) {
         console.log("I hear voices!"); // Konsolenausgabe
-        _response.setHeader("content-type", "text/html; charset=utf-8");
-        _response.setHeader("Access-Control-Allow-Origin", "*"); // Alle dürfen darauf zugreifen
-        _response.write(_request.url); //Antwort was zurückgegeben wird
         console.log(_request.url); // Konsolenausgabe Antwort
-        if (_request.url) {
-            let url = Url.parse(_request.url, true);
-            console.log(url.query);
-            if (url.pathname == "/html") {
-                for (let key in url.query) {
-                    _response.write(key + ":" + url.query[key] + "<br/>");
-                }
+        let url = Url.parse(_request.url, true);
+        console.log(url);
+        if (url.pathname == "/html") {
+            _response.setHeader("content-type", "text/html; charset=utf-8");
+            _response.setHeader("Access-Control-Allow-Origin", "*"); // Alle dürfen darauf zugreifen
+            for (let key in url.query) {
+                _response.write("<p>" + key + ": " + url.query[key] + "</p>");
             }
-            if (url.pathname == "/json") {
-                let jsonString = JSON.stringify(url.query);
-                console.log(jsonString);
-                _response.write(jsonString);
-            }
+        }
+        if (url.pathname == "/json") {
+            _response.setHeader("content-type", "application/json; charset=utf-8");
+            _response.setHeader("Access-Control-Allow-Origin", "*"); // Alle dürfen darauf zugreifen
+            let jsonString = JSON.stringify(url.query);
+            _response.write(jsonString);
         }
         _response.end(); // Beenden und zurückschicken
     }

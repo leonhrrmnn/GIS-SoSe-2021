@@ -1,6 +1,6 @@
 namespace P_3_2 {
 
-    let url: RequestInfo = "https://testleonhrrmnn.herokuapp.com";
+    let url: string = "http://localhost:8100";
     let buttonHTML: HTMLButtonElement = <HTMLButtonElement>document.getElementById("HTML");
     let buttonJSON: HTMLButtonElement = <HTMLButtonElement>document.getElementById("JSON");
     let zurückgeben: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("zurückgeben");
@@ -8,13 +8,16 @@ namespace P_3_2 {
     async function datenHTML(): Promise<void> {
 
         let formData: FormData = new FormData(document.forms[0]);
-        console.log(formData.get("name"));
         
+        console.log(formData.get("name"));
+         
         let session: URLSearchParams = new URLSearchParams(<any>formData);
         url = url + "/html?" + session.toString();
         let response: Response = await fetch(url);
         let ausgabe: string = await response.text();
         zurückgeben.innerHTML = ausgabe;
+        
+
     }
 
     async function datenJSON(): Promise<void> {
@@ -26,8 +29,10 @@ namespace P_3_2 {
         url = url + "/json?" + session.toString();
         let response: Response = await fetch(url);
         let ausgabe: string = await response.text();
-        let jsonString: Form = JSON.parse(ausgabe);
-        console.log(jsonString);
+        let formResponse: Form = JSON.parse(ausgabe);
+        
+        
+        console.log(formResponse);
         
     }
 
@@ -40,6 +45,5 @@ namespace P_3_2 {
         plz: string;
         ort: string;
         eMail: string;
-
     }
 }

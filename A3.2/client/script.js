@@ -1,7 +1,7 @@
 "use strict";
 var P_3_2;
 (function (P_3_2) {
-    let url = "https://testleonhrrmnn.herokuapp.com";
+    let url = "http://localhost:8100";
     let buttonHTML = document.getElementById("HTML");
     let buttonJSON = document.getElementById("JSON");
     let zurückgeben = document.getElementById("zurückgeben");
@@ -21,8 +21,8 @@ var P_3_2;
         url = url + "/json?" + session.toString();
         let response = await fetch(url);
         let ausgabe = await response.text();
-        let jsonString = JSON.parse(ausgabe);
-        console.log(jsonString);
+        let formResponse = JSON.parse(ausgabe);
+        console.log(formResponse);
     }
     buttonHTML.addEventListener("click", datenHTML);
     buttonJSON.addEventListener("click", datenJSON);

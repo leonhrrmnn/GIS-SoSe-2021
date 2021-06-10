@@ -10,7 +10,7 @@
     "@types/node": "^15.12.0"
   },
   "scripts": {
-    "start": "node A3.1/server/server.js"
+    "start": "node A3.2/server/server.js"
   },
   "repository": {
     "type": "git",
