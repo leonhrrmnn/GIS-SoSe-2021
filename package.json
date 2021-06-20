@@ -4,13 +4,15 @@
   "description": "halloo",
   "main": "index.js",
   "dependencies": {
+    "@types/mongodb": "^3.6.18",
+    "mongodb": "^3.6.9",
     "sudo": "^1.0.3"
   },
   "devDependencies": {
     "@types/node": "^15.12.0"
   },
   "scripts": {
-    "start": "node A3.2/server/server.js"
+    "start": "node A3.4/server/server.js"
   },
   "repository": {
     "type": "git",
