@@ -61,7 +61,7 @@ var Modulprüfung;
         h4.innerText = "Zutaten:";
         let zutaten = document.createElement("div");
         zutaten.id = "Zutat";
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < _rezept.zutaten.length; i++) {
             let listZutat = document.createElement("p");
             zutaten.appendChild(listZutat);
             listZutat.innerText = i + ": " + _rezept.zutaten[i];
@@ -111,7 +111,7 @@ var Modulprüfung;
         h4.innerText = "Zutaten:";
         let zutaten = document.createElement("div");
         zutaten.id = "Zutat";
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < _rezept.zutaten.length; i++) {
             let listZutat = document.createElement("p");
             zutaten.appendChild(listZutat);
             listZutat.innerText = i + ": " + _rezept.zutaten[i];
@@ -144,9 +144,9 @@ var Modulprüfung;
         let all;
         for (let i = 0; i < allString.length; i++) {
             all = allString[i];
-        }
-        if (all != null) {
-            Rezept(all);
+            if (all != null) {
+                Rezept(all);
+            }
         }
     }
     async function showFavRezepte() {
@@ -157,17 +157,17 @@ var Modulprüfung;
         let fav;
         for (let i = 0; i < favString.length; i++) {
             fav = favString[i];
-        }
-        if (fav != null) {
-            Rezept(fav);
-        }
-        else {
-            let p = document.createElement("p");
-            rezept.appendChild(p);
-            let anchor = document.createElement("a");
-            p.appendChild(anchor);
-            anchor.innerText = "um diesen Inhalt zu sehen müssen sie sich Hier anmelden";
-            anchor.href = "login.html";
+            if (fav != null) {
+                Rezept(fav);
+            }
+            else {
+                let p = document.createElement("p");
+                rezept.appendChild(p);
+                let anchor = document.createElement("a");
+                p.appendChild(anchor);
+                anchor.innerText = "um diesen Inhalt zu sehen müssen sie sich Hier anmelden";
+                anchor.href = "login.html";
+            }
         }
     }
     async function showMyRezepte() {
@@ -177,15 +177,15 @@ var Modulprüfung;
         let my;
         for (let i = 0; i < myString.length; i++) {
             my = myString[i];
-        }
-        if (my != null) {
-            myRezept(my);
-        }
-        else {
-            let anchor = document.createElement("a");
-            rezept.appendChild(anchor);
-            anchor.innerText = "um diesen Inhalt zu sehen müssen sie sich Hier anmelden";
-            anchor.href = "login.html";
+            if (my != null) {
+                myRezept(my);
+            }
+            else {
+                let anchor = document.createElement("a");
+                rezept.appendChild(anchor);
+                anchor.innerText = "um diesen Inhalt zu sehen müssen sie sich Hier anmelden";
+                anchor.href = "login.html";
+            }
         }
     }
     function LoginNav() {

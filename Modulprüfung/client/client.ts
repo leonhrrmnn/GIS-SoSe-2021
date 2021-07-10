@@ -81,7 +81,7 @@ namespace Modulprüfung {
 
         let zutaten: HTMLDivElement = document.createElement("div");
         zutaten.id = "Zutat";
-        for (let i: number = 0; i < 10; i++) {
+        for (let i: number = 0; i < _rezept.zutaten.length; i++) {
             let listZutat: HTMLParagraphElement = document.createElement("p");
             zutaten.appendChild(listZutat);
             listZutat.innerText = i + ": " + _rezept.zutaten[i];
@@ -148,7 +148,7 @@ namespace Modulprüfung {
 
         let zutaten: HTMLDivElement = document.createElement("div");
         zutaten.id = "Zutat";
-        for (let i: number = 0; i < 10; i++) {
+        for (let i: number = 0; i < _rezept.zutaten.length; i++) {
             let listZutat: HTMLParagraphElement = document.createElement("p");
             zutaten.appendChild(listZutat);
             listZutat.innerText = i + ": " + _rezept.zutaten[i];
@@ -197,10 +197,11 @@ namespace Modulprüfung {
         for (let i: number = 0; i < allString.length; i++) {
 
             all = allString[i];
+            if (all != null) {
+                Rezept(all);
+            }
         }
-        if (all != null) {
-            Rezept(all);
-        }
+        
 
 
 
@@ -220,22 +221,23 @@ namespace Modulprüfung {
         for (let i: number = 0; i < favString.length; i++) {
 
             fav = favString[i];
+            if (fav != null) {
+                Rezept(fav);
+            } else {
+                let p: HTMLParagraphElement = <HTMLParagraphElement>document.createElement("p");
+                rezept.appendChild(p);
+                let anchor: HTMLAnchorElement = <HTMLAnchorElement>document.createElement("a");
+                p.appendChild(anchor);
+                anchor.innerText = "um diesen Inhalt zu sehen müssen sie sich Hier anmelden";
+                anchor.href = "login.html";
+    
+    
+    
+            }
         }
 
 
-        if (fav != null) {
-            Rezept(fav);
-        } else {
-            let p: HTMLParagraphElement = <HTMLParagraphElement>document.createElement("p");
-            rezept.appendChild(p);
-            let anchor: HTMLAnchorElement = <HTMLAnchorElement>document.createElement("a");
-            p.appendChild(anchor);
-            anchor.innerText = "um diesen Inhalt zu sehen müssen sie sich Hier anmelden";
-            anchor.href = "login.html";
-
-
-
-        }
+       
     }
 
     async function showMyRezepte(): Promise<void> {
@@ -247,21 +249,20 @@ namespace Modulprüfung {
         for (let i: number = 0; i < myString.length; i++) {
 
             my = myString[i];
+            if (my != null) {
+                myRezept(my);
+            } else {
+    
+                let anchor: HTMLAnchorElement = <HTMLAnchorElement>document.createElement("a");
+                rezept.appendChild(anchor);
+                anchor.innerText = "um diesen Inhalt zu sehen müssen sie sich Hier anmelden";
+                anchor.href = "login.html";
+    
+    
+    
+            }
         }
 
-
-        if (my != null) {
-            myRezept(my);
-        } else {
-
-            let anchor: HTMLAnchorElement = <HTMLAnchorElement>document.createElement("a");
-            rezept.appendChild(anchor);
-            anchor.innerText = "um diesen Inhalt zu sehen müssen sie sich Hier anmelden";
-            anchor.href = "login.html";
-
-
-
-        }
     }
 
     function LoginNav(): void {
