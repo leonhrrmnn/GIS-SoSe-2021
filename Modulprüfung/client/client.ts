@@ -3,7 +3,7 @@ namespace Modulprüfung {
     let rezept: HTMLDivElement = <HTMLDivElement>document.getElementById("Rezept");
     let dynamischRezepte: HTMLDivElement;
     let pageID: string = document.querySelector("title").getAttribute("id");
-    let url: string = "https://testleonhrrmnn.";
+    let url: string = "https://testleonhrrmnn.herokuapp.com";
     let aktuellerUser: string;
 
 
