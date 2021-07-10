@@ -22,6 +22,7 @@ var Modulprüfung;
         server.listen(_port);
     }
     connectToDB("mongodb+srv://hallihallo:iKks2SkxNHHm1Oh2@cluster0.6xbgh.mongodb.net/Rezepteseite?retryWrites=true&w=majority");
+    //connectToDB("mongodb://localhost:27017");
     async function connectToDB(_url) {
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient = new Mongo.MongoClient(_url, options);
@@ -46,9 +47,9 @@ var Modulprüfung;
         let aktuellerUser;
         if (url.pathname == "/login") {
             userSuchen = await user.findOne({ "username": url.query.username });
-            einloggen = await user.findOne({ "username": url.query.username, "passwort": url.query.password });
+            einloggen = await user.findOne({ "username": url.query.username, "passwort": url.query.passwort });
             if (userSuchen == undefined) {
-                let registrieren = { username: url.query.username, password: url.query.password };
+                let registrieren = { username: url.query.username, password: url.query.passwort };
                 user.insertOne(registrieren);
                 aktuellerUser = url.query.username;
                 console.log(aktuellerUser);

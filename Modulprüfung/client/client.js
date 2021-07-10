@@ -5,6 +5,7 @@ var Modulprüfung;
     let dynamischRezepte;
     let pageID = document.querySelector("title").getAttribute("id");
     let url = "https://testleonhrrmnn.herokuapp.com";
+    //let url: string = "http://localhost:8100";
     let aktuellerUser;
     //Login
     if (pageID == "pageLogin") {

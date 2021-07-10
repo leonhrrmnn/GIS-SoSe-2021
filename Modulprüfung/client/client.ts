@@ -4,6 +4,7 @@ namespace Modulprüfung {
     let dynamischRezepte: HTMLDivElement;
     let pageID: string = document.querySelector("title").getAttribute("id");
     let url: string = "https://testleonhrrmnn.herokuapp.com";
+    //let url: string = "http://localhost:8100";
     let aktuellerUser: string;
 
 

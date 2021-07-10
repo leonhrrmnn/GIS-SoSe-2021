@@ -46,6 +46,7 @@ export namespace Modulprüfung {
 
     connectToDB("mongodb+srv://hallihallo:iKks2SkxNHHm1Oh2@cluster0.6xbgh.mongodb.net/Rezepteseite?retryWrites=true&w=majority");
 
+    //connectToDB("mongodb://localhost:27017");
     async function connectToDB(_url: string): Promise<void> {
 
         let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
@@ -81,12 +82,12 @@ export namespace Modulprüfung {
 
         if (url.pathname == "/login") {
 
-            userSuchen = await user.findOne({ "username": <string> url.query.username });
+            userSuchen = await user.findOne({"username": <string> url.query.username });
 
-            einloggen = await user.findOne({ "username": <string> url.query.username, "passwort": <string> url.query.password });
+            einloggen = await user.findOne({ "username": <string> url.query.username, "passwort": <string> url.query.passwort });
 
             if (userSuchen == undefined) {
-                let registrieren: User = { username: <string>url.query.username, password: <string>url.query.password };
+                let registrieren: User = { username: <string>url.query.username, password: <string>url.query.passwort };
                 user.insertOne(registrieren);
                 aktuellerUser = <string>url.query.username;
                 
