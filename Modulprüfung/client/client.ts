@@ -82,9 +82,12 @@ namespace Modulprüfung {
         let zutaten: HTMLDivElement = document.createElement("div");
         zutaten.id = "Zutat";
         for (let i: number = 0; i < _rezept.zutaten.length; i++) {
-            let listZutat: HTMLParagraphElement = document.createElement("p");
-            zutaten.appendChild(listZutat);
-            listZutat.innerText = i + ": " + _rezept.zutaten[i];
+            if (_rezept.zutaten[i] != undefined) {
+                let listZutat: HTMLParagraphElement = document.createElement("p");
+                zutaten.appendChild(listZutat);
+                listZutat.innerText = (i + 1) + ". " + _rezept.zutaten[i];
+            }
+
         }
         divZutaten.appendChild(zutaten);
 
@@ -149,9 +152,11 @@ namespace Modulprüfung {
         let zutaten: HTMLDivElement = document.createElement("div");
         zutaten.id = "Zutat";
         for (let i: number = 0; i < _rezept.zutaten.length; i++) {
-            let listZutat: HTMLParagraphElement = document.createElement("p");
-            zutaten.appendChild(listZutat);
-            listZutat.innerText = i + ": " + _rezept.zutaten[i];
+            if (_rezept.zutaten[i] != undefined) {
+                let listZutat: HTMLParagraphElement = document.createElement("p");
+                zutaten.appendChild(listZutat);
+                listZutat.innerText = (i + 1) + ". " + _rezept.zutaten[i];
+            }
         }
         divZutaten.appendChild(zutaten);
 
@@ -201,7 +206,7 @@ namespace Modulprüfung {
                 Rezept(all);
             }
         }
-        
+
 
 
 
@@ -230,14 +235,14 @@ namespace Modulprüfung {
                 p.appendChild(anchor);
                 anchor.innerText = "um diesen Inhalt zu sehen müssen sie sich Hier anmelden";
                 anchor.href = "login.html";
-    
-    
-    
+
+
+
             }
         }
 
 
-       
+
     }
 
     async function showMyRezepte(): Promise<void> {
@@ -252,14 +257,14 @@ namespace Modulprüfung {
             if (my != null) {
                 myRezept(my);
             } else {
-    
+
                 let anchor: HTMLAnchorElement = <HTMLAnchorElement>document.createElement("a");
                 rezept.appendChild(anchor);
                 anchor.innerText = "um diesen Inhalt zu sehen müssen sie sich Hier anmelden";
                 anchor.href = "login.html";
-    
-    
-    
+
+
+
             }
         }
 
@@ -332,7 +337,7 @@ namespace Modulprüfung {
         let string: String = await response.text();
         console.log(string);
         window.location.href = "meineRezepte.html";
-        
+
     }
 
     function hndAbbruch(): void {

@@ -62,9 +62,11 @@ var Modulprüfung;
         let zutaten = document.createElement("div");
         zutaten.id = "Zutat";
         for (let i = 0; i < _rezept.zutaten.length; i++) {
-            let listZutat = document.createElement("p");
-            zutaten.appendChild(listZutat);
-            listZutat.innerText = i + ": " + _rezept.zutaten[i];
+            if (_rezept.zutaten[i] != undefined) {
+                let listZutat = document.createElement("p");
+                zutaten.appendChild(listZutat);
+                listZutat.innerText = (i + 1) + ". " + _rezept.zutaten[i];
+            }
         }
         divZutaten.appendChild(zutaten);
         let divZubereitung = document.createElement("div");
@@ -112,9 +114,11 @@ var Modulprüfung;
         let zutaten = document.createElement("div");
         zutaten.id = "Zutat";
         for (let i = 0; i < _rezept.zutaten.length; i++) {
-            let listZutat = document.createElement("p");
-            zutaten.appendChild(listZutat);
-            listZutat.innerText = i + ": " + _rezept.zutaten[i];
+            if (_rezept.zutaten[i] != undefined) {
+                let listZutat = document.createElement("p");
+                zutaten.appendChild(listZutat);
+                listZutat.innerText = (i + 1) + ". " + _rezept.zutaten[i];
+            }
         }
         divZutaten.appendChild(zutaten);
         let img = document.createElement("img");
