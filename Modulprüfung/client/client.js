@@ -229,7 +229,9 @@ var Modulprüfung;
         abbruch.addEventListener("click", hndAbbruch);
     }
     async function hndHinzufügen() {
-        url = url + "/hinzufuegen?";
+        let formData = new FormData(document.forms[0]);
+        let session = new URLSearchParams(formData);
+        url = url + "/hinzufuegen?" + session.toString();
         console.log("BAum");
         let response = await fetch(url);
         let string = await response.text();

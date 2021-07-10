@@ -84,7 +84,7 @@ export namespace Modulprüfung {
 
             userSuchen = await user.findOne({"username": <string> url.query.username });
 
-            einloggen = await user.findOne({ "username": <string> url.query.username, "passwort": <string> url.query.passwort });
+            einloggen = await user.findOne({ "username": <string> url.query.username, "password": <string> url.query.passwort });
 
             if (userSuchen == undefined) {
                 let registrieren: User = { username: <string>url.query.username, password: <string>url.query.passwort };
@@ -145,13 +145,15 @@ export namespace Modulprüfung {
         }
 
         if (url.pathname == "/hinzufuegen") {
-            
-            let inputRezepte: Rezept = ({rezeptname: <string> url.query.rezeptname, img: <string> url.query.img, zutaten: <string[]> url.query.zutat, zubereitung: <string> url.query.zubereitung, user: aktuellerUser });
-            rezept.insertOne(inputRezepte);
             let ausgabe: string = "erfolgreich hinzugefügt";
+            
+            
+            let inputRezepte: Rezept = ({rezeptname: <string> url.query.rezeptname, img: <string> url.query.img, zutaten: <string[]> url.query.zutat, zubereitung: <string> url.query.zubereitungText, user: <string>aktuellerUser });
+            rezept.insertOne(inputRezepte);
             _response.write(ausgabe);
-            console.log("erfolgreich hinzugefügt");
+            console.log(ausgabe);
             _response.end();
+            
             
         }
 

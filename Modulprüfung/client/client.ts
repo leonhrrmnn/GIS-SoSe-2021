@@ -322,8 +322,11 @@ namespace Modulprüfung {
 
     async function hndHinzufügen(): Promise<void> {
 
-        url = url + "/hinzufuegen?";
-        console.log("BAum")
+        let formData: FormData = new FormData(document.forms[0]);
+        let session: URLSearchParams = new URLSearchParams(<any>formData);
+
+        url = url + "/hinzufuegen?" + session.toString();
+        console.log("BAum");
         let response: Response = await fetch(url);
         let string: String = await response.text();
         console.log(string);

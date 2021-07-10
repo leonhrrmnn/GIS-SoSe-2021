@@ -47,7 +47,7 @@ var Modulprüfung;
         let aktuellerUser;
         if (url.pathname == "/login") {
             userSuchen = await user.findOne({ "username": url.query.username });
-            einloggen = await user.findOne({ "username": url.query.username, "passwort": url.query.passwort });
+            einloggen = await user.findOne({ "username": url.query.username, "password": url.query.passwort });
             if (userSuchen == undefined) {
                 let registrieren = { username: url.query.username, password: url.query.passwort };
                 user.insertOne(registrieren);
@@ -94,11 +94,11 @@ var Modulprüfung;
         if (url.pathname == "/bearbeiten") {
         }
         if (url.pathname == "/hinzufuegen") {
-            let inputRezepte = ({ rezeptname: url.query.rezeptname, img: url.query.img, zutaten: url.query.zutat, zubereitung: url.query.zubereitung, user: aktuellerUser });
-            rezept.insertOne(inputRezepte);
             let ausgabe = "erfolgreich hinzugefügt";
+            let inputRezepte = ({ rezeptname: url.query.rezeptname, img: url.query.img, zutaten: url.query.zutat, zubereitung: url.query.zubereitungText, user: aktuellerUser });
+            rezept.insertOne(inputRezepte);
             _response.write(ausgabe);
-            console.log("erfolgreich hinzugefügt");
+            console.log(ausgabe);
             _response.end();
         }
         if (url.pathname == "/favorisieren") {
