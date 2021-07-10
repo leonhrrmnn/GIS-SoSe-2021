@@ -81,9 +81,9 @@ export namespace Modulprüfung {
 
         if (url.pathname == "/login") {
 
-            userSuchen = await user.findOne({ "username": url.query.username });
+            userSuchen = await user.findOne({ "username": <string> url.query.username });
 
-            einloggen = await user.findOne({ "username": url.query.username, "passwort": url.query.password });
+            einloggen = await user.findOne({ "username": <string> url.query.username, "passwort": <string> url.query.password });
 
             if (userSuchen == undefined) {
                 let registrieren: User = { username: <string>url.query.username, password: <string>url.query.password };
@@ -121,7 +121,7 @@ export namespace Modulprüfung {
         }
 
         if (url.pathname == "/meineRezepte") {
-            let cursor: Mongo.Cursor = rezept.find({ username: aktuellerUser });
+            let cursor: Mongo.Cursor = rezept.find({ "username": aktuellerUser });
             let myRezepte: Rezept[] = await cursor.toArray();
             _response.write(JSON.stringify(myRezepte));
             _response.end();
@@ -129,7 +129,7 @@ export namespace Modulprüfung {
 
         if (url.pathname == "/meineFavoriten") {
             
-            let cursor: Mongo.Cursor = favorit.find({ username: aktuellerUser });
+            let cursor: Mongo.Cursor = favorit.find({ "username": aktuellerUser });
             let favRezepte: Favorit[] = await cursor.toArray();
             _response.write(JSON.stringify(favRezepte));
             _response.end();
