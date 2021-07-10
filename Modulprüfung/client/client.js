@@ -4,7 +4,7 @@ var Modulprüfung;
     let rezept = document.getElementById("Rezept");
     let dynamischRezepte;
     let pageID = document.querySelector("title").getAttribute("id");
-    let url = "http://localhost:8100";
+    let url = "https://testleonhrrmnn.";
     let aktuellerUser;
     //Login
     if (pageID == "pageLogin") {
