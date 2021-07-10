@@ -122,6 +122,7 @@ export namespace Modulprüfung {
         }
 
         if (url.pathname == "/meineRezepte") {
+            console.log(aktuellerUser);
             let cursor: Mongo.Cursor = rezept.find({ "user": aktuellerUser });
             let myRezepte: Rezept[] = await cursor.toArray();
             _response.write(JSON.stringify(myRezepte));

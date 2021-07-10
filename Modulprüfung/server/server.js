@@ -78,6 +78,7 @@ var Modulprüfung;
             _response.end();
         }
         if (url.pathname == "/meineRezepte") {
+            console.log(aktuellerUser);
             let cursor = rezept.find({ "user": aktuellerUser });
             let myRezepte = await cursor.toArray();
             _response.write(JSON.stringify(myRezepte));
