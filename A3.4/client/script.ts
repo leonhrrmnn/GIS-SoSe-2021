@@ -17,7 +17,6 @@ namespace P3_4 {
         let ausgabe: string = await response.text();
         let formResponse: Student = JSON.parse(ausgabe);
         
-        
         console.log(formResponse);
         
         

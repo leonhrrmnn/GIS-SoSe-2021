@@ -12,7 +12,7 @@
     "@types/node": "^15.12.0"
   },
   "scripts": {
-    "start": "node A3.4/server/server.js"
+    "start": "node Modulprüfung/server/server.js"
   },
   "repository": {
     "type": "git",
