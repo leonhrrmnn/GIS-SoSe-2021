@@ -78,13 +78,13 @@ var Modulprüfung;
             _response.end();
         }
         if (url.pathname == "/meineRezepte") {
-            let cursor = rezept.find({ "username": "leonhrrmnn" });
+            let cursor = rezept.find({ "user": aktuellerUser });
             let myRezepte = await cursor.toArray();
             _response.write(JSON.stringify(myRezepte));
             _response.end();
         }
         if (url.pathname == "/meineFavoriten") {
-            let cursor = favorit.find({ "username": aktuellerUser });
+            let cursor = favorit.find({ "user": aktuellerUser });
             let favRezepte = await cursor.toArray();
             _response.write(JSON.stringify(favRezepte));
             _response.end();

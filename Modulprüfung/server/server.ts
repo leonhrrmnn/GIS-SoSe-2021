@@ -122,7 +122,7 @@ export namespace Modulprüfung {
         }
 
         if (url.pathname == "/meineRezepte") {
-            let cursor: Mongo.Cursor = rezept.find({ "username": "leonhrrmnn" });
+            let cursor: Mongo.Cursor = rezept.find({ "user": aktuellerUser });
             let myRezepte: Rezept[] = await cursor.toArray();
             _response.write(JSON.stringify(myRezepte));
             _response.end();
@@ -130,7 +130,7 @@ export namespace Modulprüfung {
 
         if (url.pathname == "/meineFavoriten") {
             
-            let cursor: Mongo.Cursor = favorit.find({ "username": aktuellerUser });
+            let cursor: Mongo.Cursor = favorit.find({ "user": aktuellerUser });
             let favRezepte: Favorit[] = await cursor.toArray();
             _response.write(JSON.stringify(favRezepte));
             _response.end();
