@@ -76,7 +76,7 @@ export namespace Modulprüfung {
         let einloggen: User;
         let userSuchen: User;
         let aktuellerUser: string;
-        console.log(aktuellerUser);
+        
         
         
         

@@ -45,7 +45,6 @@ var Modulprüfung;
         let einloggen;
         let userSuchen;
         let aktuellerUser;
-        console.log(aktuellerUser);
         if (url.pathname == "/login") {
             userSuchen = await user.findOne({ "username": url.query.username });
             einloggen = await user.findOne({ "username": url.query.username, "password": url.query.passwort });
