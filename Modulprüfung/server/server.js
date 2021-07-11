@@ -45,7 +45,6 @@ var Modulprüfung;
         let einloggen;
         let userSuchen;
         let aktuellerUser;
-        console.log(aktuellerUser);
         if (url.pathname == "/login") {
             userSuchen = await user.findOne({ "username": url.query.username });
             einloggen = await user.findOne({ "username": url.query.username, "password": url.query.passwort });
@@ -54,20 +53,17 @@ var Modulprüfung;
                 user.insertOne(registrieren);
                 aktuellerUser = url.query.username;
                 console.log(aktuellerUser);
-                _response.write("Login erfolgreich");
+                _response.write(JSON.stringify(registrieren));
                 _response.end();
             }
             else {
                 if (einloggen != undefined) {
-                    let erfolgreich = "Login erfolgreich";
-                    _response.write(erfolgreich);
                     aktuellerUser = url.query.username;
+                    _response.write(JSON.stringify(einloggen));
                     console.log(aktuellerUser);
                     _response.end();
                 }
                 else {
-                    let error = "Username und Passwort stimmen nicht überein";
-                    _response.write(error);
                     _response.end();
                 }
             }
@@ -79,6 +75,7 @@ var Modulprüfung;
             _response.end();
         }
         if (url.pathname == "/meineRezepte") {
+            aktuellerUser = url.query.name;
             console.log(aktuellerUser);
             let cursor = rezept.find({ "user": aktuellerUser });
             let myRezepte = await cursor.toArray();
@@ -86,23 +83,70 @@ var Modulprüfung;
             _response.end();
         }
         if (url.pathname == "/meineFavoriten") {
-            let cursor = favorit.find({ "user": aktuellerUser });
+            aktuellerUser = url.query.name;
+            console.log(aktuellerUser);
+            let cursor = favorit.find({ "userFavorit": aktuellerUser });
             let favRezepte = await cursor.toArray();
             _response.write(JSON.stringify(favRezepte));
             _response.end();
         }
         if (url.pathname == "/entfernen") {
-        }
-        if (url.pathname == "/bearbeiten") {
+            let cursor = rezept.find({ _id: new Mongo.ObjectId(url.query._id.toString()) });
+            let rezepte = await cursor.toArray();
+            let favoritRezept = rezepte[0];
+            rezept.deleteOne(favoritRezept);
+            let cursorFavorit = favorit.find({ rezeptname: favoritRezept.rezeptname, img: favoritRezept.img, zutaten: favoritRezept.zutaten, zubereitung: favoritRezept.zubereitung, user: favoritRezept.user });
+            let favRezepte = await cursorFavorit.toArray();
+            for (let i = 0; i < favRezepte.length; i++) {
+                favorit.deleteOne(favRezepte[i]);
+            }
         }
         if (url.pathname == "/hinzufuegen") {
+            aktuellerUser = url.query.name;
+            console.log(aktuellerUser);
             let inputRezepte = ({ rezeptname: url.query.rezeptname, img: url.query.img, zutaten: url.query.zutat, zubereitung: url.query.zubereitungText, user: aktuellerUser });
             rezept.insertOne(inputRezepte);
-            _response.write(ausgabe);
-            console.log(ausgabe);
             _response.end();
         }
         if (url.pathname == "/favorisieren") {
+            aktuellerUser = url.query.name;
+            console.log(aktuellerUser);
+            let cursor = rezept.find({ _id: new Mongo.ObjectId(url.query._id.toString()) });
+            let favRezepte = await cursor.toArray();
+            let favoritRezept = favRezepte[0];
+            let favoritSuchen;
+            favoritSuchen = await favorit.findOne({ "rezeptname": favoritRezept.rezeptname, "img": favoritRezept.img, "zutaten": favoritRezept.zutaten, "zubereitung": favoritRezept.zubereitung, "user": favoritRezept.user, "userFavorit": aktuellerUser });
+            if (favoritSuchen == undefined) {
+                favorit.insertOne({ "rezeptname": favoritRezept.rezeptname, "img": favoritRezept.img, "zutaten": favoritRezept.zutaten, "zubereitung": favoritRezept.zubereitung, "user": favoritRezept.user, "userFavorit": aktuellerUser });
+                _response.write("nicht mehr Favorisieren");
+                _response.end();
+            }
+            else {
+                _response.write("nicht mehr Favorisieren");
+                _response.end();
+            }
+        }
+        if (url.pathname == "/nichtFavorisieren") {
+            let cursor = favorit.find({ _id: new Mongo.ObjectId(url.query._id.toString()) });
+            let favRezepte = await cursor.toArray();
+            let favoritRezept = favRezepte[0];
+            favorit.deleteOne(favoritRezept);
+            _response.end();
+        }
+        if (url.pathname == "/rezeptFav") {
+            let cursor = rezept.find({ _id: new Mongo.ObjectId(url.query._id.toString()) });
+            let favRezepte = await cursor.toArray();
+            let favoritRezept = favRezepte[0];
+            let favoritSuchen;
+            favoritSuchen = await favorit.findOne({ "rezeptname": favoritRezept.rezeptname, "img": favoritRezept.img, "zutaten": favoritRezept.zutaten, "zubereitung": favoritRezept.zubereitung, "user": favoritRezept.user, "userFavorit": aktuellerUser });
+            if (favoritSuchen == undefined) {
+                _response.write("Favorisieren");
+                _response.end();
+            }
+            else {
+                _response.write("nicht mehr Favorisieren");
+                _response.end();
+            }
         }
     }
 })(Modulprüfung = exports.Modulprüfung || (exports.Modulprüfung = {}));

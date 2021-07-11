@@ -44,6 +44,8 @@ li a{
 }
 
 
+
+
 /* main*/
 main{
     margin: 8px 20px;
@@ -122,6 +124,8 @@ input{
     grid-row: 6;
 }
 
+
+
 /*Login*/
 
 #divEinloggen{
@@ -146,6 +150,9 @@ input{
     text-align: center;
 }
 
+#Rezept #Nachricht{
+    text-align: center;
+}
 /* Alle Rezepte*/
 
 /* Meine Rezepte*/

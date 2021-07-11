@@ -1,12 +1,32 @@
 namespace Modulprüfung {
 
+    interface Rezept {
+        _id: string;
+        rezeptname: string;
+        img: string;
+        zutaten: string[];
+        zubereitung: string;
+        user: string;
+    }
+
+    interface Favorit {
+        _id: string;
+        rezeptname: string;
+        img: string;
+        zutaten: string[];
+        zubereitung: string;
+        user: string;
+        userFavorit: string;
+    }
+
     let rezept: HTMLDivElement = <HTMLDivElement>document.getElementById("Rezept");
     let dynamischRezepte: HTMLDivElement;
     let pageID: string = document.querySelector("title").getAttribute("id");
     let url: string = "https://testleonhrrmnn.herokuapp.com";
     //let url: string = "http://localhost:8100";
-    let aktuellerUser: string;
+    let aktuellerUser: string = localStorage.getItem("name");
 
+    let favorisierenText: string;
 
     //Login
     if (pageID == "pageLogin") {
@@ -25,20 +45,25 @@ namespace Modulprüfung {
         let session: URLSearchParams = new URLSearchParams(<any>formData);
         url = url + "/login?" + session.toString();
         let response: Response = await fetch(url);
-        let ausgabe: string = await response.text();
+        let responseText: string = await response.text();
+        let ausgabe: User = JSON.parse(responseText);
 
-        //let ausgabe = "hallo";
-        fehlermeldung.innerHTML = ausgabe;
+        localStorage.setItem("name", ausgabe.username);
+
         console.log(ausgabe);
-
-        if (ausgabe == "Login erfolgreich") {
+        if (responseText != undefined) {
             window.location.href = "alleRezepte.html";
+            fehlermeldung.innerHTML = "Login erfolgreich";
+        } else {
+            fehlermeldung.innerHTML = "Username oder Passwort falsch";
         }
+
+
 
 
     }
 
-    function Rezept(_rezept: Rezept): void {
+    function Rezept(_rezept: Rezept, _favText: string): void {
 
 
         dynamischRezepte = document.createElement("div");
@@ -59,15 +84,37 @@ namespace Modulprüfung {
         dynamischRezepte.appendChild(fav);
 
         let favorit: HTMLButtonElement = document.createElement("button");
-        favorit.id = "Favorisieren";
-        favorit.innerText = "Favorisieren";
-        fav.appendChild(favorit);
-        favorit.addEventListener("click", hndFavorisieren);
+        favorit.innerText = _favText;
 
-        function hndFavorisieren(): void {
-            
-            url = url + "/favorisieren?" + _rezept.toString();
-            console.log(url);
+        favorit.innerText = favorisierenText;
+        if (favorit.innerText == "Favorisieren") {
+            favorit.addEventListener("click", hndFavorisieren);
+        } else {
+            favorit.addEventListener("click", hndNichtFavorisieren);
+        }
+
+
+        favorit.id = "Favorisieren";
+
+        favorit.setAttribute("_id", _rezept._id);
+        fav.appendChild(favorit);
+
+
+
+        async function hndFavorisieren(): Promise<void> {
+            url = "http://localhost:8100";
+            url = url + "/favorisieren?" + "_id=" + _rezept._id.toString() + "&name=" + localStorage.getItem("name");
+            let response: Response = await fetch(url);
+            let ausgabe: string = await response.text();
+            window.location.href = "meineFavoriten.html";
+
+        }
+        async function hndNichtFavorisieren(): Promise<void> {
+            url = "http://localhost:8100";
+            url = url + "/nichtFavorisieren?" + "_id=" + _rezept._id.toString() + "&name=" + localStorage.getItem("name");
+            let response: Response = await fetch(url);
+            let ausgabe: string = await response.text();
+            window.location.href = "meineFavoriten.html";
 
         }
 
@@ -76,7 +123,10 @@ namespace Modulprüfung {
         dynamischRezepte.appendChild(divZutaten);
 
         let img: HTMLImageElement = document.createElement("img");
-        img.src = _rezept.img;
+
+
+        img.src = "./meme.png";
+
         divZutaten.appendChild(img);
 
         let h4: HTMLParagraphElement = document.createElement("h4");
@@ -86,7 +136,7 @@ namespace Modulprüfung {
         let zutaten: HTMLDivElement = document.createElement("div");
         zutaten.id = "Zutat";
         for (let i: number = 0; i < _rezept.zutaten.length; i++) {
-            if (_rezept.zutaten[i] != undefined) {
+            if (_rezept.zutaten[i] != undefined || _rezept.zutaten[i] != "") {
                 let listZutat: HTMLParagraphElement = document.createElement("p");
                 zutaten.appendChild(listZutat);
                 listZutat.innerText = (i + 1) + ". " + _rezept.zutaten[i];
@@ -117,6 +167,7 @@ namespace Modulprüfung {
     }
 
     function myRezept(_rezept: Rezept): void {
+        console.log("Baum");
 
         dynamischRezepte = document.createElement("div");
         rezept.appendChild(dynamischRezepte);
@@ -138,13 +189,20 @@ namespace Modulprüfung {
         let entfernen: HTMLButtonElement = document.createElement("button");
         entfernen.id = "entfernen";
         entfernen.innerText = "entfernen";
+        entfernen.addEventListener("click", hndEntfernen);
         fav.appendChild(entfernen);
 
-        let bearbeiten: HTMLButtonElement = document.createElement("button");
-        bearbeiten.id = "bearbeiten";
-        bearbeiten.innerText = "bearbeiten";
-        fav.appendChild(bearbeiten);
+        async function hndEntfernen(): Promise<void> {
 
+            url = "http://localhost:8100";
+            url = url + "/entfernen?" + "_id=" + _rezept._id.toString();
+            let response: Response = await fetch(url);
+            let ausgabe: string = await response.text();
+            console.log(ausgabe);
+            location.href = "meineRezepte.html";
+
+        }
+       
         let divZutaten: HTMLDivElement = document.createElement("div");
         divZutaten.id = "Zutaten";
         dynamischRezepte.appendChild(divZutaten);
@@ -156,7 +214,7 @@ namespace Modulprüfung {
         let zutaten: HTMLDivElement = document.createElement("div");
         zutaten.id = "Zutat";
         for (let i: number = 0; i < _rezept.zutaten.length; i++) {
-            if (_rezept.zutaten[i] != undefined) {
+            if (_rezept.zutaten[i] != undefined || _rezept.zutaten[i] != "") {
                 let listZutat: HTMLParagraphElement = document.createElement("p");
                 zutaten.appendChild(listZutat);
                 listZutat.innerText = (i + 1) + ". " + _rezept.zutaten[i];
@@ -165,7 +223,8 @@ namespace Modulprüfung {
         divZutaten.appendChild(zutaten);
 
         let img: HTMLImageElement = document.createElement("img");
-        img.src = _rezept.img;
+        img.src = "./meme.png";
+
         divZutaten.appendChild(img);
 
         let divZubereitung: HTMLDivElement = document.createElement("div");
@@ -189,23 +248,37 @@ namespace Modulprüfung {
 
     }
 
+    async function ifRezeptFav(_rezept: Rezept): Promise<void> {
+        url = "http://localhost:8100";
+        url = url + "/rezeptFav?" + "_id=" + _rezept._id.toString();
+        let response: Response = await fetch(url);
+        let string: string = await response.text();
 
+        favorisierenText = string;
+
+        Rezept(_rezept, favorisierenText);
+
+    }
 
 
 
 
     async function showAllRezepte(): Promise<void> {
 
+
+
+        console.log(aktuellerUser);
         url = url + "/alleRezepte?";
         let response: Response = await fetch(url);
         let allString: Rezept[] = await response.json();
         let all: Rezept;
 
+
         for (let i: number = 0; i < allString.length; i++) {
 
             all = allString[i];
             if (all != null) {
-                Rezept(all);
+                ifRezeptFav(all);
             }
         }
 
@@ -216,20 +289,20 @@ namespace Modulprüfung {
     }
 
     async function showFavRezepte(): Promise<void> {
-        url = url + "/meineFavoriten?";
-        console.log("busch");
+        url = url + "/meineFavoriten?" + "name=" + localStorage.getItem("name");
 
 
         let response: Response = await fetch(url);
         let favString: Favorit[] = await response.json();
         let fav: Favorit;
+        favorisierenText = "nicht mehr Favorisieren";
 
 
         for (let i: number = 0; i < favString.length; i++) {
 
             fav = favString[i];
             if (fav != null) {
-                Rezept(fav);
+                Rezept(fav, favorisierenText);
             } else {
                 let p: HTMLParagraphElement = <HTMLParagraphElement>document.createElement("p");
                 rezept.appendChild(p);
@@ -248,13 +321,13 @@ namespace Modulprüfung {
     }
 
     async function showMyRezepte(): Promise<void> {
-        url = url + "/meineRezepte?";
+        url = url + "/meineRezepte?" + "name=" + localStorage.getItem("name");
         let response: Response = await fetch(url);
         let myString: Rezept[] = await response.json();
         let my: Rezept;
 
-        for (let i: number = 0; i < myString.length; i++) {
 
+        for (let i: number = 0; i < myString.length; i++) {
             my = myString[i];
             if (my != null) {
                 myRezept(my);
@@ -285,9 +358,12 @@ namespace Modulprüfung {
 
     function hndLogout(): void {
         console.log("ausloggen");
+        localStorage.removeItem("name");
+        window.location.href = "login.html";
     }
 
     if (pageID == "AlleRezepte") {
+
         LoginNav();
         showAllRezepte();
     }
@@ -297,23 +373,42 @@ namespace Modulprüfung {
     // Rezept inhalte werden mit dynamisch Inhalten gefüllt
     //alleRezepte / meine Favoriten
     if (pageID == "MeineFavoriten") {
+        let nachricht: HTMLParagraphElement = <HTMLParagraphElement>document.createElement("p");
+        nachricht.id = "Nachricht";
+        rezept.appendChild(nachricht);
         LoginNav();
-        showFavRezepte();
+        if (aktuellerUser == null) {
+            nachricht.innerText = "Um diesen Inhalt zu sehen musst du dich einloggen";
+        } else {
+            showFavRezepte();
+        }
     }
 
     // meine Rezepte
 
     if (pageID == "MeineRezepte") {
         LoginNav();
-        let buttonHinzufügen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("hinzufügen");
-        buttonHinzufügen.addEventListener("click", hndHinzufügen);
+
+        let flex: HTMLDivElement = <HTMLDivElement>document.getElementById("flexHinzufügen");
+
+        let nachricht: HTMLParagraphElement = document.createElement("p");
+        nachricht.id = "Nachricht";
+        rezept.appendChild(nachricht);
+        LoginNav();
+        if (aktuellerUser == null) {
+            nachricht.innerText = "Um diesen Inhalt zu sehen musst du dich einloggen";
+        } else {
+            let buttonHinzufügen: HTMLButtonElement = document.createElement("button");
+            buttonHinzufügen.id = "hinzufügen";
+            buttonHinzufügen.innerText = "+";
+            flex.appendChild(buttonHinzufügen);
+            buttonHinzufügen.addEventListener("click", hndHinzufügen);
+            showMyRezepte();
+        }
 
         function hndHinzufügen(_event: Event): void {
             location.href = "hinzufügen.html";
         }
-
-        showMyRezepte();
-
 
     }
 
@@ -333,11 +428,13 @@ namespace Modulprüfung {
         let formData: FormData = new FormData(document.forms[0]);
         let session: URLSearchParams = new URLSearchParams(<any>formData);
 
-        url = url + "/hinzufuegen?" + session.toString();
-        console.log("BAum");
+        url = url + "/hinzufuegen?" + session.toString() + "&name=" + localStorage.getItem("name");
+
         let response: Response = await fetch(url);
         let string: String = await response.text();
         console.log(string);
+        console.log("BAum");
+
         window.location.href = "meineRezepte.html";
 
     }
