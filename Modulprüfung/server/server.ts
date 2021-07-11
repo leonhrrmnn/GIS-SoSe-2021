@@ -76,6 +76,7 @@ export namespace Modulprüfung {
         let einloggen: User;
         let userSuchen: User;
         let aktuellerUser: string;
+        console.log(aktuellerUser);
         
         
         
@@ -92,7 +93,7 @@ export namespace Modulprüfung {
                 aktuellerUser = <string>url.query.username;
                 
                 console.log(aktuellerUser);
-                _response.write("Login erfolgreich");
+                _response.write("Login erfolgreich" );
                 _response.end();
             } else {
                 if (einloggen != undefined) {
@@ -146,8 +147,6 @@ export namespace Modulprüfung {
         }
 
         if (url.pathname == "/hinzufuegen") {
-            let ausgabe: string = "erfolgreich hinzugefügt";
-            
             
             let inputRezepte: Rezept = ({rezeptname: <string> url.query.rezeptname, img: <string> url.query.img, zutaten: <string[]> url.query.zutat, zubereitung: <string> url.query.zubereitungText, user: <string>aktuellerUser });
             rezept.insertOne(inputRezepte);
@@ -158,7 +157,8 @@ export namespace Modulprüfung {
             
         }
 
-        if (url.pathname == "/favorisieren"){
+        if (url.pathname == "/favorisieren") {
+
 
         }
     

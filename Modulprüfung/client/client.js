@@ -4,8 +4,8 @@ var Modulprüfung;
     let rezept = document.getElementById("Rezept");
     let dynamischRezepte;
     let pageID = document.querySelector("title").getAttribute("id");
-    let url = "https://testleonhrrmnn.herokuapp.com";
-    //let url: string = "http://localhost:8100";
+    //let url: string = "https://testleonhrrmnn.herokuapp.com";
+    let url = "http://localhost:8100";
     let aktuellerUser;
     //Login
     if (pageID == "pageLogin") {
@@ -43,13 +43,13 @@ var Modulprüfung;
         dynamischRezepte.appendChild(fav);
         let favorit = document.createElement("button");
         favorit.id = "Favorisieren";
-        //if (favorisieren == false){
         favorit.innerText = "Favorisieren";
-        /* } else{
-            favorit.innerText =  "nicht mehr Favorisieren";
-        }*/
         fav.appendChild(favorit);
         favorit.addEventListener("click", hndFavorisieren);
+        function hndFavorisieren() {
+            url = url + "/favorisieren?" + _rezept.toString();
+            console.log(url);
+        }
         let divZutaten = document.createElement("div");
         divZutaten.id = "Zutaten";
         dynamischRezepte.appendChild(divZutaten);
@@ -137,9 +137,6 @@ var Modulprüfung;
         user.id = "user";
         user.innerText = "von " + _rezept.user;
         dynamischRezepte.appendChild(user);
-    }
-    function hndFavorisieren() {
-        console.log("hello");
     }
     async function showAllRezepte() {
         url = url + "/alleRezepte?";

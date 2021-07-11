@@ -3,8 +3,8 @@ namespace Modulprüfung {
     let rezept: HTMLDivElement = <HTMLDivElement>document.getElementById("Rezept");
     let dynamischRezepte: HTMLDivElement;
     let pageID: string = document.querySelector("title").getAttribute("id");
-    let url: string = "https://testleonhrrmnn.herokuapp.com";
-    //let url: string = "http://localhost:8100";
+    //let url: string = "https://testleonhrrmnn.herokuapp.com";
+    let url: string = "http://localhost:8100";
     let aktuellerUser: string;
 
 
@@ -40,6 +40,7 @@ namespace Modulprüfung {
 
     function Rezept(_rezept: Rezept): void {
 
+
         dynamischRezepte = document.createElement("div");
         rezept.appendChild(dynamischRezepte);
 
@@ -59,13 +60,16 @@ namespace Modulprüfung {
 
         let favorit: HTMLButtonElement = document.createElement("button");
         favorit.id = "Favorisieren";
-        //if (favorisieren == false){
         favorit.innerText = "Favorisieren";
-        /* } else{
-            favorit.innerText =  "nicht mehr Favorisieren";
-        }*/
         fav.appendChild(favorit);
         favorit.addEventListener("click", hndFavorisieren);
+
+        function hndFavorisieren(): void {
+            
+            url = url + "/favorisieren?" + _rezept.toString();
+            console.log(url);
+
+        }
 
         let divZutaten: HTMLDivElement = document.createElement("div");
         divZutaten.id = "Zutaten";
@@ -185,9 +189,7 @@ namespace Modulprüfung {
 
     }
 
-    function hndFavorisieren(): void {
-        console.log("hello");
-    }
+
 
 
 

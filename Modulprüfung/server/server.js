@@ -45,6 +45,7 @@ var Modulprüfung;
         let einloggen;
         let userSuchen;
         let aktuellerUser;
+        console.log(aktuellerUser);
         if (url.pathname == "/login") {
             userSuchen = await user.findOne({ "username": url.query.username });
             einloggen = await user.findOne({ "username": url.query.username, "password": url.query.passwort });
@@ -95,7 +96,6 @@ var Modulprüfung;
         if (url.pathname == "/bearbeiten") {
         }
         if (url.pathname == "/hinzufuegen") {
-            let ausgabe = "erfolgreich hinzugefügt";
             let inputRezepte = ({ rezeptname: url.query.rezeptname, img: url.query.img, zutaten: url.query.zutat, zubereitung: url.query.zubereitungText, user: aktuellerUser });
             rezept.insertOne(inputRezepte);
             _response.write(ausgabe);
